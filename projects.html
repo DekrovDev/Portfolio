@@ -16,7 +16,6 @@
     <link rel="icon" type="image/png" href="assets/favicon-rounded.png">
     <link rel="apple-touch-icon" href="assets/favicon-rounded.png">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="projects/Auto.Tg/project.css">
     <script>
         (function () {
             const savedTheme = localStorage.getItem('theme') || 'auto';
@@ -104,29 +103,14 @@
     </header>
 
     <main class="container">
-        <section class="project-hero">
-            <a href="index.html" class="back-link" data-i18n="back-to-home">Back</a>
-            <h1 data-i18n="all-projects-title">My projects website</h1>
+        <section class="project-index-hero">
+            <a href="index.html" class="back-link" data-i18n="back-to-home">To home</a>
+            <p class="eyebrow project-index-hero-eyebrow" data-i18n="all-projects-eyebrow">Selected work</p>
+            <h1 data-i18n="all-projects-title">Projects built around real tasks</h1>
+            <p class="project-index-hero-intro" data-i18n="all-projects-intro">A collection of practical products, assistants, and experiments. Open a project to see the decisions behind the result.</p>
         </section>
 
         <div class="architecture-grid">
-            <article class="glass-card architecture-card">
-                <div class="project-meta" style="margin-bottom: 0.5rem;">
-                    <h3 data-i18n="proj-name-1" style="font-size: 1.1rem; margin: 0;">Giveaway Bot</h3>
-                    <span class="status in-progress" data-i18n="proj-status" style="font-size: 0.7rem; padding: 2px 8px;">Active</span>
-                </div>
-
-                <p class="project-tech" style="font-size: 0.85rem; margin-bottom: 0.5rem;">
-                    Python, Aiogram, SQLite
-                </p>
-
-                <p style="font-size: 0.9rem; line-height: 1.4; margin-bottom: 1rem;" data-i18n="proj-desc-1">
-                    Automated contest management system with admin panel and analytics.
-                </p>
-
-                <a class="project-link" href="projects/Auto.Tg/project-automation.html" data-i18n="proj-more" style="font-size: 0.85rem; margin-top: auto;">Details</a>
-            </article>
-
             <article class="glass-card architecture-card">
                 <div class="project-meta" style="margin-bottom: 0.5rem;">
                     <h3 data-i18n="proj-name-2" style="font-size: 1.1rem; margin: 0;">Dekrov AI Userbot</h3>
@@ -159,6 +143,23 @@
                 </p>
 
                 <a class="project-link" href="projects/Visitor/project-visitor-ai.html" data-i18n="proj-more" style="font-size: 0.85rem; margin-top: auto;">Details</a>
+            </article>
+
+            <article class="glass-card architecture-card">
+                <div class="project-meta" style="margin-bottom: 0.5rem;">
+                    <h3 data-i18n="proj-name-4" style="font-size: 1.1rem; margin: 0;">Dekrov QR</h3>
+                    <span class="status completed" data-i18n="proj-status-3" style="font-size: 0.7rem; padding: 2px 8px;">Completed successfully</span>
+                </div>
+
+                <p class="project-tech" style="font-size: 0.85rem; margin-bottom: 0.5rem;">
+                    HTML, CSS, JavaScript
+                </p>
+
+                <p style="font-size: 0.9rem; line-height: 1.4; margin-bottom: 1rem;" data-i18n="proj-desc-4">
+                    Privacy-friendly QR code generator for links, text, Wi-Fi, contacts, and more — all in the browser.
+                </p>
+
+                <a class="project-link" href="projects/QR/project-dekrov-qr.html" data-i18n="proj-more" style="font-size: 0.85rem; margin-top: auto;">Details</a>
             </article>
         </div>
     </main>

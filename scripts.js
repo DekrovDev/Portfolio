@@ -1,9 +1,4 @@
 const PROJECT_CASE_CONFIG = {
-    "project-automation": {
-        titleKey: "full-sec-project-case-title",
-        textKey: "full-sec-project-case-text",
-        hideGenericSections: true
-    },
     "project-ai-userbot": {
         titleKey: "project-ai-userbot-case-title",
         textKey: "project-ai-userbot-case-text",
@@ -12,6 +7,11 @@ const PROJECT_CASE_CONFIG = {
     "project-visitor-ai": {
         titleKey: "project-visitor-ai-case-title",
         textKey: "project-visitor-ai-case-text",
+        hideGenericSections: false
+    },
+    "project-dekrov-qr": {
+        titleKey: "project-dekrov-qr-case-title",
+        textKey: "project-dekrov-qr-case-text",
         hideGenericSections: false
     }
 };
@@ -64,6 +64,12 @@ const PROJECT_CASE_FALLBACKS = {
             title: "Project Application: Visitor AI Assistant",
             text: "For the visitor assistant, JSON persistence stores lightweight session state, moderation state, and review signals without introducing a heavy backend. It keeps the public layer simple to deploy while still letting consultations feel stateful and controlled."
         }
+    },
+    "project-dekrov-qr": {
+        "frontend": {
+            title: "Project Application: Dekrov QR",
+            text: "Dekrov QR uses semantic HTML, responsive CSS, and vanilla JavaScript as one compact browser product. The interface adapts its fields to each QR format, validates input, renders a live canvas preview, and exports PNG or SVG files without a backend."
+        }
     }
 };
 
@@ -75,6 +81,13 @@ async function setLanguage(lang, updateUrl = true) {
         const segments = normalizedPath.split('/').filter(Boolean);
         const fileDepth = Math.max(0, segments.length - 1);
         const pathPrefix = fileDepth === 0 ? './' : '../'.repeat(fileDepth);
+        const sharedScript = Array.from(document.scripts).find((script) => {
+            if (!script.src) return false;
+            return new URL(script.src, window.location.href).pathname.endsWith('/scripts.js');
+        });
+        const localesBaseUrl = sharedScript
+            ? new URL('locales/', sharedScript.src)
+            : new URL(`${pathPrefix}locales/`, window.location.href);
         const urlParams = new URLSearchParams(window.location.search);
         const techId = urlParams.get('id');
         const fromSource = urlParams.get('from');
@@ -89,22 +102,22 @@ async function setLanguage(lang, updateUrl = true) {
         const backLink = document.getElementById('dynamic-back-link');
         let backLinkKey = 'back-to-home';
         if (backLink) {
-            if (fromSource === 'project-automation') {
-                backLink.href = "../Auto.Tg/project-automation.html#d-stack";
-                backLinkKey = 'back-to-Giveaway-Bot-&-Admin-Dashboard';
-            } else if (fromSource === 'project-ai-userbot') {
+            if (fromSource === 'project-ai-userbot') {
                 backLink.href = "../AI.Userbot/project-ai-userbot.html#ai-stack";
                 backLinkKey = 'back-to-Dekrov-AI-Userbot';
             } else if (fromSource === 'project-visitor-ai') {
                 backLink.href = "../Visitor/project-visitor-ai.html#vis-stack";
                 backLinkKey = 'back-to-Visitor-AI-Assistant';
+            } else if (fromSource === 'project-dekrov-qr') {
+                backLink.href = "../QR/project-dekrov-qr.html#qr-stack";
+                backLinkKey = 'back-to-Dekrov-QR';
             } else {
                 backLink.href = "../../index.html";
             }
             backLink.setAttribute('data-i18n', backLinkKey);
         }
         
-        const response = await fetch(`${pathPrefix}locales/${lang}.json?v=20260307`, {
+        const response = await fetch(new URL(`${lang}.json?v=20260307`, localesBaseUrl), {
             cache: 'no-store'
         });
         if (!response.ok) throw new Error('Translation file not found');

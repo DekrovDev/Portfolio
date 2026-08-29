@@ -1516,18 +1516,6 @@ h3 {
   border-color: rgba(15, 23, 42, 0.1);
 }
 
-[data-theme="light"] .contacts-cta-actions .idea-open-btn {
-  background: rgba(241, 245, 249, 0.96);
-  color: #0f172a;
-  border-color: rgba(15, 23, 42, 0.16);
-}
-
-[data-theme="light"] .contacts-cta-actions .idea-open-btn:hover {
-  background: rgba(239, 246, 255, 1);
-  color: #075985;
-  border-color: var(--accent);
-}
-
 .contacts-buttons {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1767,6 +1755,97 @@ h3 {
   gap: 0.8rem;
 }
 
+.project-index-hero {
+  position: relative;
+  width: min(100%, 1060px);
+  max-width: 1060px;
+  margin: 1.2rem 0 2.2rem;
+  padding: 1.1rem 1.5rem 1.3rem;
+  border: 1px solid rgba(111, 211, 255, 0.2);
+  border-radius: 1.35rem;
+  background: linear-gradient(135deg, rgba(111, 211, 255, 0.08), rgba(255, 255, 255, 0.025) 48%, rgba(150, 98, 255, 0.06));
+  box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.project-index-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  width: 8rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0.9;
+}
+
+.project-index-hero .back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1.4rem;
+  padding: 0.52rem 0.85rem;
+  border: 1px solid rgba(111, 211, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(111, 211, 255, 0.08);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform var(--ease), border-color var(--ease), background var(--ease);
+}
+
+.project-index-hero .back-link::before {
+  content: "←";
+  color: var(--accent);
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.project-index-hero .back-link:hover {
+  transform: translateX(-3px);
+  border-color: rgba(111, 211, 255, 0.65);
+  background: rgba(111, 211, 255, 0.15);
+}
+
+.project-index-hero-eyebrow {
+  margin-bottom: 0.7rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.project-index-hero h1 {
+  max-width: 30ch;
+  font-size: clamp(2.2rem, 4.8vw, 3.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.project-index-hero-intro {
+  max-width: 78ch;
+  margin: 0.8rem 0 0;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(111, 211, 255, 0.55);
+  color: var(--text-muted);
+  font-size: clamp(1rem, 1.6vw, 1.16rem);
+  line-height: 1.65;
+}
+
+[data-theme="light"] .project-index-hero {
+  border-color: rgba(3, 105, 161, 0.22);
+  background: linear-gradient(135deg, rgba(224, 242, 254, 0.9), rgba(255, 255, 255, 0.92) 48%, rgba(237, 233, 254, 0.82));
+  box-shadow: 0 1.2rem 3rem rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] .project-index-hero .back-link {
+  border-color: rgba(3, 105, 161, 0.3);
+  background: rgba(224, 242, 254, 0.78);
+}
+
+[data-theme="light"] .project-index-hero .back-link:hover {
+  border-color: rgba(3, 105, 161, 0.6);
+  background: rgba(186, 230, 253, 0.9);
+}
+
 .project-page .architecture-grid {
   margin-top: 2rem;
   margin-bottom: 3rem;
@@ -1884,6 +1963,22 @@ h3 {
 
   .brand {
     font-size: 1.1rem;
+  }
+
+  .project-index-hero {
+    margin-top: 0.7rem;
+    margin-bottom: 1.3rem;
+    padding: 1rem 1rem 1.15rem;
+  }
+
+  .project-index-hero h1 {
+    max-width: 24ch;
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .project-index-hero-intro {
+    padding-left: 0.8rem;
+    font-size: 0.98rem;
   }
 
   .hero {

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" data-i18n-content="qr-meta-description" content="Dekrov QR: a privacy-friendly in-browser QR code generator for links, Wi-Fi, contacts, and more.">
+  <title data-i18n="qr-page-title">Project | Dekrov QR</title>
+  <link rel="icon" type="image/png" href="../../assets/favicon-rounded.png">
+  <link rel="apple-touch-icon" href="../../assets/favicon-rounded.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../Visitor/project.css">
+  <link rel="stylesheet" href="project.css">
+  <script src="../../scripts.js?v=20260826" defer></script>
+</head>
+<body>
+  <div class="bg-orb orb-1" aria-hidden="true"></div>
+  <div class="bg-orb orb-2" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header container">
+    <a class="brand" href="../../index.html#hero">Dekrov.dev</a>
+    <div class="header-actions">
+      <div class="theme-toggle-wrapper">
+        <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme" title="Theme: Auto">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-auto" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
+        </button>
+      </div>
+      <div class="menu-wrapper">
+        <button class="menu-toggle" id="menu-btn" aria-label="Toggle menu" data-i18n-aria-label="menu-toggle-label"><span></span><span></span><span></span></button>
+        <div class="menu-overlay" id="menu-overlay"><div class="menu-card"><nav class="mobile-nav">
+          <a href="../../index.html#about" data-i18n="nav-about">About me</a>
+          <a href="../../projects.html" data-i18n="nav-projects">Projects</a>
+          <a href="../../index.html#contacts" data-i18n="nav-contacts">Contacts</a>
+          <div class="lang-scroll-area"><div class="lang-dropdown">
+            <button class="lang-btn" id="lang-btn" type="button" aria-label="Select language" aria-expanded="false"><span class="lang-current" id="lang-current">English</span><svg class="lang-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <div class="lang-options" id="lang-options">
+              <button class="lang-option" data-value="en">English</button><button class="lang-option" data-value="uk">Українська</button><button class="lang-option" data-value="ru">Русский</button><button class="lang-option" data-value="it">Italiano</button><button class="lang-option" data-value="de">Deutsch</button><button class="lang-option" data-value="fr">Français</button><button class="lang-option" data-value="zh">中文</button>
+            </div>
+          </div></div>
+        </nav></div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-page qr-page">
+    <section class="project-hero container reveal reveal-fade">
+      <a class="back-link" href="../../projects.html" data-i18n="qr-back">Back to projects</a>
+      <p class="eyebrow" data-i18n="pa-eyebrow">Case Study</p>
+      <h1>Dekrov QR</h1>
+      <p class="tagline" data-i18n="qr-tagline">A privacy-friendly QR code generator that creates practical codes locally in the browser.</p>
+      <div class="hero-badges">
+        <span class="badge completed" data-i18n="proj-status-3">Completed successfully</span>
+        <span class="badge neutral">HTML + CSS + JavaScript</span>
+        <span class="badge neutral" data-i18n="qr-badge-local">Local processing</span>
+        <span class="badge neutral">PNG + SVG</span>
+      </div>
+      <article class="glass-card repo-callout">
+        <p class="repo-callout-kicker" data-i18n="qr-open-kicker">Available now</p>
+        <h2 data-i18n="qr-open-title">Try it or inspect the code</h2>
+        <p class="repo-callout-text" data-i18n="qr-open-text">Dekrov QR works entirely in the browser: entered data is encoded locally and never needs a server or account.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="https://dekrovdev.github.io/dekrov-qr/" target="_blank" rel="noreferrer noopener" data-i18n="qr-demo">Open demo</a>
+          <a class="btn-secondary" href="https://github.com/DekrovDev/dekrov-qr" target="_blank" rel="noreferrer noopener" data-i18n="proj-github">View on GitHub</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="container section reveal reveal-slide scroll-zoom">
+      <div class="split-grid">
+        <article class="glass-card mini-card">
+          <h3 data-i18n="pa-problem-title">Problem</h3>
+          <p data-i18n="qr-problem-text">Creating a QR code should be quick, understandable, and private. Many generators add friction with accounts, ads, or remote data handling for a simple task.</p>
+        </article>
+        <article class="glass-card mini-card">
+          <h3 data-i18n="pa-solution-title">Solution</h3>
+          <p data-i18n="qr-solution-text">A focused browser tool with clear input flows, validation, live preview, customization, and PNG or SVG export — without a backend.</p>
+        </article>
+      </div>
+      <div class="stat-band">
+        <div class="stat-item">
+          <strong data-i18n="qr-stat-1-title">6 formats</strong>
+          <span data-i18n="qr-stat-1-text">Links, text, Wi-Fi, phone numbers, email, and vCard contacts.</span>
+        </div>
+        <div class="stat-item">
+          <strong data-i18n="qr-stat-2-title">Browser-only</strong>
+          <span data-i18n="qr-stat-2-text">QR generation happens locally; entered content is not sent to a server.</span>
+        </div>
+        <div class="stat-item">
+          <strong data-i18n="qr-stat-3-title">Two exports</strong>
+          <span data-i18n="qr-stat-3-text">Download a ready-to-use code as PNG or a scalable SVG.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section reveal reveal-scale scroll-zoom">
+      <h2 data-i18n="pa-features-title">Features</h2>
+      <div class="architecture-grid">
+        <article class="glass-card architecture-card">
+          <h3 data-i18n="qr-feature-1-title">Smart input flows</h3>
+          <p data-i18n="qr-feature-1-text">Each QR type exposes only the relevant fields, including Wi-Fi security options and contact data.</p>
+        </article>
+        <article class="glass-card architecture-card">
+          <h3 data-i18n="qr-feature-2-title">Scan-safe customization</h3>
+          <p data-i18n="qr-feature-2-text">Color contrast is checked before export, while transparent backgrounds receive a clear warning.</p>
+        </article>
+        <article class="glass-card architecture-card">
+          <h3 data-i18n="qr-feature-3-title">Practical exports</h3>
+          <p data-i18n="qr-feature-3-text">Adjustable resolution and direct PNG/SVG downloads make the result usable on screen and in print.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section reveal reveal-slide scroll-zoom">
+      <h2 data-i18n="qr-workflow-title">How it works</h2>
+      <div class="qr-steps">
+        <article class="glass-card qr-step">
+          <span class="qr-step-number">01</span>
+          <h3 data-i18n="qr-workflow-1-title">Choose the content type</h3>
+          <p data-i18n="qr-workflow-1-text">Select a link, plain text, Wi-Fi network, phone number, email, or contact card. The form adapts to the selected format.</p>
+        </article>
+        <article class="glass-card qr-step">
+          <span class="qr-step-number">02</span>
+          <h3 data-i18n="qr-workflow-2-title">Validate and customize</h3>
+          <p data-i18n="qr-workflow-2-text">The tool validates the entered values, builds the correct QR payload, and checks whether the chosen colors remain easy to scan.</p>
+        </article>
+        <article class="glass-card qr-step">
+          <span class="qr-step-number">03</span>
+          <h3 data-i18n="qr-workflow-3-title">Preview and export</h3>
+          <p data-i18n="qr-workflow-3-text">Review the generated code immediately, adjust its resolution, then download a raster PNG or scalable SVG file.</p>
+        </article>
+      </div>
+      <div class="split-grid qr-quality-grid">
+        <article class="glass-card mini-card">
+          <h3 data-i18n="qr-quality-title">Input quality</h3>
+          <p data-i18n="qr-quality-text">Links, phone numbers, email addresses, Wi-Fi credentials, and contact fields have format-specific checks. Invalid or incomplete data is explained before export.</p>
+        </article>
+        <article class="glass-card mini-card">
+          <h3 data-i18n="qr-privacy-title">Privacy by design</h3>
+          <p data-i18n="qr-privacy-text">There is no registration, database, analytics payload, or server-side generation step. The content stays inside the current browser session.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="qr-stack" class="container section reveal reveal-slide scroll-zoom">
+      <h2 data-i18n="pa-stack-title">Technology Stack</h2>
+      <div class="stack-grid">
+        <a href="../What_is/tech.html?id=frontend&amp;from=project-dekrov-qr" class="glass-card stack-item">
+          <strong>HTML</strong>
+          <span data-i18n="qr-stack-html">Semantic structure and accessible form controls.</span>
+        </a>
+        <a href="../What_is/tech.html?id=frontend&amp;from=project-dekrov-qr" class="glass-card stack-item">
+          <strong>CSS</strong>
+          <span data-i18n="qr-stack-css">Responsive interface, custom controls, and visual states.</span>
+        </a>
+        <a href="../What_is/tech.html?id=frontend&amp;from=project-dekrov-qr" class="glass-card stack-item">
+          <strong>JavaScript</strong>
+          <span data-i18n="qr-stack-js">Validation, QR payload creation, previews, clipboard, and downloads.</span>
+        </a>
+        <a href="https://github.com/kazuhikoarase/qrcode-generator" target="_blank" rel="noreferrer noopener" class="glass-card stack-item">
+          <strong>qrcode-generator</strong>
+          <span data-i18n="qr-stack-lib">Client-side QR encoding library used to generate the code matrix.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="container section reveal reveal-slide scroll-zoom">
+      <h2 data-i18n="pa-res-title">Result</h2>
+      <article class="glass-card project-panel">
+        <p data-i18n="qr-result-text">Dekrov QR is a compact utility with a polished product flow: it turns several common QR scenarios into one fast, private tool that works on desktop and mobile without registration.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
