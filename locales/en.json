@@ -277,7 +277,10 @@
         "full-sec-1-text": "Git is essentially a graph database. Each commit has a unique SHA-1 hash, which guarantees that the code content hasn't been altered unnoticed. Unlike older systems (SVN), Git stores complete file snapshots. This makes operations like switching between branches (checkout) and merging instant. Understanding concepts like the 'index' (staging area) and 'tree' allows me to efficiently manage even the most complex merge conflicts.",
         "full-sec-2-title": "2. Git Flow Methodology",
         "full-sec-2-text": "For stable development, I use Git Flow. The main branch always contains only tested, production-ready code. Development occurs in the 'develop' branch, and each new feature is created in a separate 'feature/' branch. This prevents unfinished code from breaking the working system. Using commands like cherry-pick and rebase allows me to maintain a clean and understandable commit history, which is critical for long-term project maintenance."
-    },
+    ,
+    "project-ai-tools-case-title": "Project Application: AI-Dekrov",
+    "project-ai-tools-case-text": "Git and GitHub Actions keep AI-Dekrov's public data versioned and trustworthy. Every change flows through the repository, submissions are checked automatically, and only reviewed updates are merged and published."
+},
     "frontend": {
         "project-dekrov-qr-case-title": "Project Application: Dekrov QR",
         "project-dekrov-qr-case-text": "Dekrov QR uses semantic HTML, responsive CSS, and vanilla JavaScript as one compact browser product. The interface adapts its fields to each QR format, validates input, renders a live canvas preview, and exports PNG or SVG files without a backend.",
@@ -294,7 +297,10 @@
         "full-sec-1-text": "Modern frontend is not just static pages. With JavaScript, I manipulate the DOM (Document Object Model) tree, dynamically changing the interface in response to user actions. Using the Fetch API allows for background data exchange with the backend. This creates the effect of a Single Page Application (SPA), where the page does not fully reload but only smoothly updates the necessary data blocks, significantly enhancing user comfort.",
         "full-sec-2-title": "2. CSS Architecture and Animations",
         "full-sec-2-text": "For styling, I use CSS variables and modern positioning methods. This makes it easy to implement dark and light themes. Animations are implemented using hardware acceleration (transform: translate3d), guaranteeing smooth 60 FPS even on mobile devices. Special attention is paid to the layout methodology: I separate styles into logical modules so they can be easily reused in different parts of the project."
-    },
+    ,
+    "project-ai-tools-case-title": "Project Application: AI-Dekrov",
+    "project-ai-tools-case-text": "In AI-Dekrov, HTML, CSS, and JavaScript build the single-page catalog interface: it loads the public data, searches and filters it, saves personal favorites, and renders a dedicated page for each tool, all client-side."
+},
     "asyncio": {
         "tech-page-title": "Asyncio: Deep Asynchrony in Python",
         "tech-main-desc": "Asyncio is a library to write concurrent code using the async/await syntax. It is the foundation for modern high-load systems handling thousands of network connections simultaneously.",
@@ -501,7 +507,10 @@
         "project-ai-userbot-case-text": "JSON persistence is part of why Dekrov AI Userbot stays portable: runtime state, owner knowledge, reminders, memory layers, and control settings can survive restarts without a separate database server. That tradeoff matches the product well because it keeps inspection, backup, and deployment straightforward.",
         "project-visitor-ai-case-title": "Project Application: Visitor AI Assistant",
         "project-visitor-ai-case-text": "For the visitor assistant, JSON persistence stores lightweight session state, moderation state, and review signals without introducing a heavy backend. It keeps the public layer simple to deploy while still letting consultations feel stateful and controlled."
-    },
+    ,
+    "project-ai-tools-case-title": "Project Application: AI-Dekrov",
+    "project-ai-tools-case-text": "In AI-Dekrov, the catalog, labels, and site configuration live as plain JSON files in the repository. This keeps the data inspectable, versionable, and easy to validate, while personal preferences stay only in each visitor's browser."
+},
     "don-tagline": "This page exists for people who want to back the work, help cover infrastructure costs, and keep the project moving.",
     "don-method-ton-title": "TON",
     "don-title": "Support the work behind Dekrov.dev",
@@ -574,5 +583,39 @@
     "ait-stack-4-text": "CLI scripts and an analyzer that help inspect pages and build tool records.",
     "ait-stack-5-text": "Static hosting with a custom domain - fast, cacheable, and dependency-free.",
     "ait-result-text": "AI-Dekrov shows how a curated product can stay simple on the surface while having real structure underneath: a privacy-friendly static frontend, a publicly versioned data store, and a moderated contribution flow backed by automation. As a portfolio case it demonstrates product thinking around trust, maintainability, and community input - not just another list of links.",
-    "back-to-AI-Dekrov": "Back to AI-Dekrov"
+    "back-to-AI-Dekrov": "Back to AI-Dekrov",
+    "node": {
+    "tech-page-title": "Node.js: Runtime, Tooling, and Automation",
+    "tech-main-desc": "Node.js is a JavaScript runtime built on Chrome's V8 engine, designed for fast, non-blocking applications and command-line tooling. It is the foundation of the scripts that maintain and extend a project.",
+    "tech-deep-title": "Core Capabilities",
+    "tech-card-1-title": "Event-Driven Runtime",
+    "tech-card-1-text": "A single-threaded event loop handles many I/O operations without blocking, keeping utilities fast even during heavy file and network work.",
+    "tech-card-2-title": "npm and Scripts",
+    "tech-card-2-text": "Packages and project scripts turn repeatable tasks such as validation and analysis into shareable, version-controlled commands.",
+    "tech-card-3-title": "CLI Automation",
+    "tech-card-3-text": "Node lets you build small command-line tools that fetch pages, parse content, and update data files in a controlled way.",
+    "full-sec-1-title": "1. The Event Loop and Async I/O",
+    "full-sec-1-text": "Node runs JavaScript on a single thread but uses a non-blocking I/O model with an event loop. Long operations such as network requests and file reads are started in the background and continued when ready, so the program never stops to wait. This keeps small utilities fast and safe to run frequently, which is exactly what automation scripts need.",
+    "full-sec-2-title": "2. Tooling as a Maintained Part of a Product",
+    "full-sec-2-text": "Keeping the analyzer and helper commands as Node scripts inside the repository means the same routines a contributor uses can also be executed and tested by automation. The scripts share the data schema and validation logic, so adding an entry by hand, semi-automatically, or fully automatically always stays consistent.",
+    "project-ai-tools-case-title": "Project Application: AI-Dekrov",
+    "project-ai-tools-case-text": "In AI-Dekrov, Node.js powers the CLI and analyzer that inspect official pages, build schema-valid tool records, and preview them before writing to the data file. Tests and GitHub Actions run the same scripts, so every path that adds a tool shares the same validation logic."
+    },
+    "github-pages": {
+    "tech-page-title": "GitHub Pages: Static Publishing from a Repository",
+    "tech-main-desc": "GitHub Pages is a free static hosting service that publishes a website directly from a Git repository. With a custom domain and CI integration, it turns a repository into a deployed product without a separate server.",
+    "tech-deep-title": "Core Capabilities",
+    "tech-card-1-title": "Publish from Git",
+    "tech-card-1-text": "Pushing changes to the repository deploys the site, so what visitors see always matches the source.",
+    "tech-card-2-title": "Custom Domains",
+    "tech-card-2-text": "A CNAME file maps the project to a domain you own, giving it a stable and branded address.",
+    "tech-card-3-title": "CI Integration",
+    "tech-card-3-text": "Workflows can validate, test, and build the site before it is published to production.",
+    "full-sec-1-title": "1. The Repository as the Source of Truth",
+    "full-sec-1-text": "With GitHub Pages, the repository is both the source and the deployment target. Every push can trigger a rebuild, so there is no separate deploy step to forget and no drift between what you test and what visitors see. Version history becomes publishing history.",
+    "full-sec-2-title": "2. Domains, Caching, and Automation",
+    "full-sec-2-text": "Static publishing works well with a custom domain and global caching, making the site fast and inexpensive to serve. Combined with workflows that validate content on the way in, the deploy pipeline stays automatic and controllable, which keeps a public catalog reliable without extra infrastructure.",
+    "project-ai-tools-case-title": "Project Application: AI-Dekrov",
+    "project-ai-tools-case-text": "AI-Dekrov is published as a static GitHub Pages site with a custom domain. GitHub Actions validates and merges submissions before Pages rebuilds, so the live catalog only reflects the reviewed state of the repository."
+    }
 }

@@ -276,7 +276,10 @@
         "full-sec-1-text": "Git est essentiellement une base de données graphe. Chaque commit a un hachage SHA-1 unique, garantissant que le contenu du code n'a pas été modifié inaperçu. Contrairement aux anciens systèmes (SVN), Git stocke des instantanés (snapshots) complets de fichiers. Cela rend instantanées des opérations comme le changement de branche (checkout) et la fusion (merge). La compréhension de concepts tels que 'l'index' (zone de staging) et 'l'arbre' (tree) me permet de gérer efficacement même les conflits de fusion les plus complexes.",
         "full-sec-2-title": "2. Méthodologie Git Flow",
         "full-sec-2-text": "Pour un développement stable, j'utilise Git Flow. La branche principale (main) contient toujours uniquement du code testé et prêt pour la production. Le développement se fait dans la branche 'develop', et chaque nouvelle fonctionnalité est créée dans une branche séparée 'feature/'. Cela évite que du code non terminé ne casse le système fonctionnel. L'utilisation de commandes comme cherry-pick et rebase me permet de maintenir un historique des commits propre et compréhensible, ce qui est essentiel pour la maintenance à long terme du projet."
-    },
+    ,
+    "project-ai-tools-case-title": "Application au projet : AI-Dekrov",
+    "project-ai-tools-case-text": "Git et GitHub Actions gardent les données publiques d'AI-Dekrov versionnées et fiables. Chaque changement passe par le dépôt, les contributions sont vérifiées automatiquement et seules les mises à jour relues sont fusionnées et publiées."
+},
     "frontend": {
         "project-dekrov-qr-case-title": "Application au projet : Dekrov QR",
         "project-dekrov-qr-case-text": "Dekrov QR réunit HTML sémantique, CSS responsive et JavaScript pur dans un produit web compact. L'interface adapte ses champs à chaque format QR, valide les données, affiche un aperçu canvas en direct et exporte en PNG ou SVG sans backend.",
@@ -293,7 +296,10 @@
         "full-sec-1-text": "Le frontend moderne ne se résume pas à des pages statiques. Avec JavaScript, je manipule l'arbre DOM (Document Object Model), modifiant dynamiquement l'interface en réponse aux actions de l'utilisateur. L'utilisation de l'API Fetch permet l'échange de données avec le back-end en arrière-plan. Cela crée l'effet d'une application monopage (SPA), où la page ne se recharge pas complètement mais met seulement à jour en douceur les blocs de données nécessaires, améliorant considérablement le confort de l'utilisateur.",
         "full-sec-2-title": "2. Architecture CSS et animations",
         "full-sec-2-text": "Pour le style, j'utilise des variables CSS et des méthodes de positionnement modernes. Cela facilite l'implémentation de thèmes sombres et clairs. Les animations sont implémentées avec l'accélération matérielle (transform: translate3d), garantissant une fluidité de 60 FPS même sur les appareils mobiles. Une attention particulière est portée à la méthodologie de mise en page: je sépare les styles en modules logiques afin qu'ils puissent être facilement réutilisés dans différentes parties du projet."
-    },
+    ,
+    "project-ai-tools-case-title": "Application au projet : AI-Dekrov",
+    "project-ai-tools-case-text": "Dans AI-Dekrov, HTML, CSS et JavaScript construisent l'interface du catalogue sur une seule page : elle charge les données publiques, les recherche et les filtre, enregistre les favoris personnels et rend une page dédiée pour chaque outil, tout côté client."
+},
     "asyncio": {
         "tech-page-title": "Asyncio: L'asynchronisme profond en Python",
         "tech-main-desc": "Asyncio est une bibliothèque pour écrire du code concurrent en utilisant la syntaxe async/await. C'est le fondement des systèmes modernes à forte charge gérant des milliers de connexions réseau simultanément.",
@@ -492,7 +498,10 @@
         "project-ai-userbot-case-text": "La persistance JSON fait partie des raisons pour lesquelles Dekrov AI Userbot reste portable : runtime state, owner knowledge, rappels, memory layers et control settings survivent aux redémarrages sans serveur de base de données séparé. Ce compromis fonctionne bien ici car il simplifie l'inspection, les sauvegardes et le déploiement.",
         "project-visitor-ai-case-title": "Application dans le projet : Visitor AI Assistant",
         "project-visitor-ai-case-text": "Pour Visitor AI Assistant, la persistance JSON conserve l'état léger des sessions, l'état de modération et les signaux de review sans introduire un backend lourd. Cela garde la couche publique simple à déployer tout en rendant les consultations réellement stateful."
-    },
+    ,
+    "project-ai-tools-case-title": "Application au projet : AI-Dekrov",
+    "project-ai-tools-case-text": "Dans AI-Dekrov, le catalogue, les libellés et la configuration du site vivent comme de simples fichiers JSON dans le dépôt. Cela rend les données inspectables, versionnables et faciles à valider, tandis que les préférences personnelles restent uniquement dans le navigateur de chaque visiteur."
+},
     "don-tagline": "Cette page existe pour les personnes qui veulent soutenir le travail, aider à couvrir les coûts d infrastructure et permettre au projet de continuer à avancer.",
     "don-method-ton-title": "TON",
     "don-title": "Soutenir le travail derrière Dekrov.dev",
@@ -565,5 +574,39 @@
     "ait-stack-4-text": "Scripts CLI et un analyseur qui aident à inspecter les pages et fabriquer des enregistrements.",
     "ait-stack-5-text": "Hébergement statique avec domaine personnalisé - rapide, mise en cache et sans dépendances.",
     "ait-result-text": "AI-Dekrov montre comment un produit curaté peut rester simple en surface tout en ayant une vraie structure en dessous : un frontend statique respectueux de la vie privée, un stockage de données versionné publiquement et un flux de contributions modéré adossé à l'automatisation. Comme cas portfolio, il démontre une réflexion produit autour de la confiance, de la maintenabilité et de l'apport communautaire - pas seulement une autre liste de liens.",
-    "back-to-AI-Dekrov": "Retour à AI-Dekrov"
+    "back-to-AI-Dekrov": "Retour à AI-Dekrov",
+    "node": {
+    "tech-page-title": "Node.js : runtime, tooling et automatisation",
+    "tech-main-desc": "Node.js est un runtime JavaScript fondé sur le moteur V8 de Chrome, conçu pour des applications rapides et non bloquantes ainsi que pour l'outillage en ligne de commande. C'est la base des scripts qui maintiennent et étendent un projet.",
+    "tech-deep-title": "Capacités clés",
+    "tech-card-1-title": "Runtime piloté par événements",
+    "tech-card-1-text": "Une boucle d'événements mono-thread gère de nombreuses opérations d'entrée-sortie sans bloquer, gardant les utilitaires rapides même lors de travaux intensifs sur fichiers et réseau.",
+    "tech-card-2-title": "npm et scripts",
+    "tech-card-2-text": "Les paquets et scripts de projet transforment des tâches répétitives comme la validation et l'analyse en commandes partageables et versionnées.",
+    "tech-card-3-title": "Automatisation en CLI",
+    "tech-card-3-text": "Node permet de créer de petits outils en ligne de commande qui récupèrent des pages, analysent le contenu et mettent à jour des fichiers de données de façon contrôlée.",
+    "full-sec-1-title": "1. La boucle d'événements et les I/O asynchrones",
+    "full-sec-1-text": "Node exécute JavaScript sur un seul thread mais utilise un modèle d'I/O non bloquant avec une boucle d'événements. Les opérations longues comme les requêtes réseau et la lecture de fichiers sont lancées en arrière-plan puis reprises quand elles sont prêtes, de sorte que le programme n'attend jamais. Cela garde les petits utilitaires rapides et sûrs à exécuter souvent, ce qui est exactement ce dont les scripts d'automatisation ont besoin.",
+    "full-sec-2-title": "2. L'outillage comme partie maintenue d'un produit",
+    "full-sec-2-text": "En conservant l'analyseur et les commandes utilitaires comme scripts Node dans le dépôt, les mêmes routines qu'utilise un contributeur peuvent aussi être exécutées et testées par l'automatisation. Les scripts partagent le schéma de données et la logique de validation, de sorte qu'ajouter une entrée à la main, semi-automatiquement ou automatiquement reste toujours cohérent.",
+    "project-ai-tools-case-title": "Application au projet : AI-Dekrov",
+    "project-ai-tools-case-text": "Dans AI-Dekrov, Node.js alimente la CLI et l'analyseur qui inspectent les pages officielles, construisent des enregistrements d'outils valides selon le schéma et les prévisualisent avant l'écriture dans le fichier de données. Les tests et GitHub Actions exécutent les mêmes scripts, donc tout chemin qui ajoute un outil partage la même logique de validation."
+    },
+    "github-pages": {
+    "tech-page-title": "GitHub Pages : publication statique depuis un dépôt",
+    "tech-main-desc": "GitHub Pages est un service d'hébergement statique gratuit qui publie un site directement depuis un dépôt Git. Avec un domaine personnalisé et l'intégration CI, il transforme un dépôt en produit déployé sans serveur séparé.",
+    "tech-deep-title": "Capacités clés",
+    "tech-card-1-title": "Publier depuis Git",
+    "tech-card-1-text": "Pousser les modifications dans le dépôt déploie le site, de sorte que ce que voient les visiteurs correspond toujours à la source.",
+    "tech-card-2-title": "Domaines personnalisés",
+    "tech-card-2-text": "Un fichier CNAME associe le projet à un domaine que vous possédez, lui donnant une adresse stable et reconnaissable.",
+    "tech-card-3-title": "Intégration CI",
+    "tech-card-3-text": "Les workflows peuvent valider, tester et construire le site avant sa publication en production.",
+    "full-sec-1-title": "1. Le dépôt comme source de vérité",
+    "full-sec-1-text": "Avec GitHub Pages, le dépôt est à la fois la source et la cible de déploiement. Chaque push peut déclencher une reconstruction, donc il n'y a pas d'étape de déploiement séparée à oublier ni d'écart entre ce que vous testez et ce que voient les visiteurs. L'historique des versions devient l'historique des publications.",
+    "full-sec-2-title": "2. Domaines, cache et automatisation",
+    "full-sec-2-text": "La publication statique fonctionne bien avec un domaine personnalisé et un cache global, rendant le site rapide et peu coûteux à servir. Combiné à des workflows qui valident le contenu à l'entrée, le pipeline de déploiement reste automatique et contrôlable, ce qui maintient un catalogue public fiable sans infrastructure supplémentaire.",
+    "project-ai-tools-case-title": "Application au projet : AI-Dekrov",
+    "project-ai-tools-case-text": "AI-Dekrov est publié comme un site statique GitHub Pages avec un domaine personnalisé. GitHub Actions valide et fusionne les contributions avant la reconstruction de Pages, donc le catalogue en ligne ne reflète que l'état relu du dépôt."
+    }
 }

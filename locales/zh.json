@@ -276,7 +276,10 @@
         "full-sec-1-text": "Git本质上是一个图数据库。每个提交都有一个唯一的SHA-1哈希，保证代码内容未被 unnoticed 修改。与旧系统不同，Git存储完整的文件快照。这使得切换分支和合并等操作瞬间完成。理解诸如'索引'和'树'等概念，使我能够高效地管理甚至最复杂的合并冲突。",
         "full-sec-2-title": "2. Git Flow方法论",
         "full-sec-2-text": "为了稳定开发，我使用Git Flow。主分支始终只包含经过测试、可投入生产的代码。开发在'develop'分支中进行，每个新功能都在单独的'feature/'分支中创建。这可以防止未完成的代码破坏正在运行的系统。使用cherry-pick和rebase等命令可以让我保持清晰易懂的提交历史，这对于项目的长期维护至关重要。"
-    },
+    ,
+    "project-ai-tools-case-title": "项目应用：AI-Dekrov",
+    "project-ai-tools-case-text": "Git 和 GitHub Actions 让 AI-Dekrov 的公共数据得到版本管理且值得信赖。每次更改都经由仓库，贡献会经过自动校验，只有审核通过的更新才会被合并和发布。"
+},
     "frontend": {
         "project-dekrov-qr-case-title": "项目应用：Dekrov QR",
         "project-dekrov-qr-case-text": "Dekrov QR 将语义化 HTML、响应式 CSS 和原生 JavaScript 组合成一个紧凑的浏览器产品。界面会针对不同二维码格式调整字段、验证输入、通过 Canvas 实时预览，并在无需后端的情况下导出 PNG 或 SVG。",
@@ -293,7 +296,10 @@
         "full-sec-1-text": "现代前端不仅仅是静态页面。使用JavaScript，我操作DOM树，动态地改变界面以响应用户操作。使用Fetch API允许与后端在后台交换数据。这创造了单页应用的效果，页面不会完全重新加载，而只平滑地更新必要的数据块，显著提高了用户舒适度。",
         "full-sec-2-title": "2. CSS架构与动画",
         "full-sec-2-text": "对于样式，我使用CSS变量和现代定位方法。这使得轻松实现暗色和亮色主题成为可能。动画通过硬件加速实现，即使在移动设备上也能保证流畅的60 FPS。特别关注布局方法论：我将样式分离为逻辑模块，以便它们可以在项目的不同部分轻松重用。"
-    },
+    ,
+    "project-ai-tools-case-title": "项目应用：AI-Dekrov",
+    "project-ai-tools-case-text": "在 AI-Dekrov 中，HTML、CSS 和 JavaScript 构建单页目录界面：加载公共数据、搜索并筛选、保存个人收藏，并为每个工具渲染专属页面——全部在客户端完成。"
+},
     "asyncio": {
         "tech-page-title": "Asyncio：Python中的深层异步",
         "tech-main-desc": "Asyncio是一个使用async/await语法编写并发代码的库。它是现代高负载系统的基础，可同时处理数千个网络连接。",
@@ -492,7 +498,10 @@
         "project-ai-userbot-case-text": "JSON 持久化是 Dekrov AI Userbot 保持可移植性的原因之一：runtime state、owner knowledge、提醒、memory layers 和 control settings 都能在没有独立数据库服务器的情况下跨重启保留下来。对这个项目来说，这种权衡很合适，因为它简化了 inspection、backup 和 deployment。",
         "project-visitor-ai-case-title": "项目应用：Visitor AI Assistant",
         "project-visitor-ai-case-text": "对于 Visitor AI Assistant，JSON 持久化保存轻量级会话状态、moderation state 和 review signals，而不需要引入沉重的后端层。这样公开层部署简单，但咨询过程仍然真正具备 stateful 特性。"
-    },
+    ,
+    "project-ai-tools-case-title": "项目应用：AI-Dekrov",
+    "project-ai-tools-case-text": "在 AI-Dekrov 中，目录、标签和站点配置都以纯 JSON 文件存放在仓库中。这让数据易于检查、版本化并好校验，而个人偏好只保留在每位访客的浏览器中。"
+},
     "don-tagline": "这个页面是为想支持这项工作、帮助承担基础设施成本并让项目继续推进的人准备的。",
     "don-method-ton-title": "TON",
     "don-title": "支持 Dekrov.dev 背后的工作",
@@ -565,5 +574,39 @@
     "ait-stack-4-text": "CLI 脚本和解析器，用于检查页面并构建工具记录。",
     "ait-stack-5-text": "带自定义域名的静态托管——快速、可缓存且零依赖。",
     "ait-result-text": "AI-Dekrov 展示了一个策展产品如何表面简单、内在却结构严谨：注重隐私的静态前端、公开版本管理的数据存储，以及由自动化支撑的受审核贡献流程。作为作品集案例，它体现了围绕信任、可维护性和社区贡献的产品思考——而不只是一份新的链接清单。",
-    "back-to-AI-Dekrov": "返回 AI-Dekrov"
+    "back-to-AI-Dekrov": "返回 AI-Dekrov",
+    "node": {
+    "tech-page-title": "Node.js：运行时、工具链与自动化",
+    "tech-main-desc": "Node.js 是基于 Chrome V8 引擎的 JavaScript 运行时，面向快速、非阻塞的应用和命令行工具。它是维护和扩展项目所用脚本的基础。",
+    "tech-deep-title": "核心能力",
+    "tech-card-1-title": "事件驱动运行时",
+    "tech-card-1-text": "单线程的事件循环可在不阻塞的情况下处理大量 I/O 操作，即使在繁重的文件和网络工作中也能保持工具高效。",
+    "tech-card-2-title": "npm 与脚本",
+    "tech-card-2-text": "包和项目脚本把验证、分析等重复性任务变成可共享、可版本化的命令。",
+    "tech-card-3-title": "CLI 自动化",
+    "tech-card-3-text": "Node 可以构建小型命令行工具，用于抓取页面、解析内容并受控地更新数据文件。",
+    "full-sec-1-title": "1. 事件循环与异步 I/O",
+    "full-sec-1-text": "Node 在单线程中运行 JavaScript，但采用带事件循环的非阻塞 I/O 模型。网络请求、文件读取等耗时操作在后台启动、就绪后续算，程序从不等待。这让小型工具快速且适合频繁运行——这正是自动化脚本所需要的。",
+    "full-sec-2-title": "2. 把工具链作为产品的一部分来维护",
+    "full-sec-2-text": "把解析器和辅助命令作为仓库内的 Node 脚本保存，意味着贡献者所用的同一套流程也能被自动化执行和测试。脚本共享数据模式与校验逻辑，因此无论手动、半自动还是全自动添加条目，结果始终一致。",
+    "project-ai-tools-case-title": "项目应用：AI-Dekrov",
+    "project-ai-tools-case-text": "在 AI-Dekrov 中，Node.js 驱动 CLI 和解析器：它们检查官方页面、构建符合 schema 的工具记录，并在写入数据文件前进行预览。测试和 GitHub Actions 运行同一套脚本，因此每种添加工具的路径都共享同一校验逻辑。"
+    },
+    "github-pages": {
+    "tech-page-title": "GitHub Pages：从仓库进行静态发布",
+    "tech-main-desc": "GitHub Pages 是一项免费静态托管服务，可直接从 Git 仓库发布网站。配合自定义域名和 CI 集成，它把仓库变成已部署的产品，而无需单独的服务器。",
+    "tech-deep-title": "核心能力",
+    "tech-card-1-title": "从 Git 发布",
+    "tech-card-1-text": "把更改推送到仓库即可部署网站，访客看到的内容始终与源码一致。",
+    "tech-card-2-title": "自定义域名",
+    "tech-card-2-text": "CNAME 文件把项目映射到你拥有的域名，提供稳定且品牌化的地址。",
+    "tech-card-3-title": "CI 集成",
+    "tech-card-3-text": "工作流可以在网站发布到生产环境前对其进行校验、测试和构建。",
+    "full-sec-1-title": "1. 仓库作为真相来源",
+    "full-sec-1-text": "使用 GitHub Pages 时，仓库既是来源也是部署目标。每次推送都可以触发重新构建，因此不会遗忘单独的部署步骤，也不会出现测试内容与访客所见内容的偏差。版本历史即发布历史。",
+    "full-sec-2-title": "2. 域名、缓存与自动化",
+    "full-sec-2-text": "静态发布配合自定义域名和全局缓存，使网站快速且廉于服务。结合在入口校验内容的工作流，部署管线保持自动且可控，让公共目录无需额外基础设施也能稳健运行。",
+    "project-ai-tools-case-title": "项目应用：AI-Dekrov",
+    "project-ai-tools-case-text": "AI-Dekrov 以带自定义域名的静态 GitHub Pages 网站发布。GitHub Actions 在 Pages 重建前校验并合并贡献，因此线上目录只反映仓库经过审核的状态。"
+    }
 }

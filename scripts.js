@@ -10,6 +10,11 @@ const PROJECT_CASE_CONFIG = {
         hideGenericSections: false
     },
     "project-dekrov-qr": {
+    "project-ai-tools": {
+        titleKey: "project-ai-tools-case-title",
+        textKey: "project-ai-tools-case-text",
+        hideGenericSections: false
+    },
         titleKey: "project-dekrov-qr-case-title",
         textKey: "project-dekrov-qr-case-text",
         hideGenericSections: false
