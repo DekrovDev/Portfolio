@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NY04NMP3VW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NY04NMP3VW');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" data-i18n-content="ait-meta-description" content="AI-Dekrov: a public, moderated catalog of AI tools - services, coding agents, models, CLIs, desktop apps, and platforms.">
+  <title data-i18n="ait-page-title">Project | AI-Dekrov</title>
+  <link rel="icon" type="image/png" href="../../assets/favicon-rounded.png">
+  <link rel="apple-touch-icon" href="../../assets/favicon-rounded.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../Visitor/project.css">
+  <script src="../../scripts.js?v=20260826" defer></script>
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme') || 'auto';
+      if (savedTheme === 'dark' || savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+      document.documentElement.setAttribute('data-theme-mode', savedTheme);
+    })();
+  </script>
+</head>
+<body>
+  <div class="bg-orb orb-1" aria-hidden="true"></div>
+  <div class="bg-orb orb-2" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header container">
+    <a class="brand" href="../../index.html#hero">Dekrov.dev</a>
+    <div class="header-actions">
+      <div class="theme-toggle-wrapper">
+        <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme" title="Theme: Auto">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-auto" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        </button>
+      </div>
+      <div class="menu-wrapper">
+        <button class="menu-toggle" id="menu-btn" aria-label="Toggle menu" data-i18n-aria-label="menu-toggle-label"><span></span><span></span><span></span></button>
+        <div class="menu-overlay" id="menu-overlay"><div class="menu-card"><nav class="mobile-nav">
+          <a href="../../index.html#about" data-i18n="nav-about">About me</a>
+          <a href="../../projects.html" data-i18n="nav-projects">Projects</a>
+          <a href="../../index.html#contacts" data-i18n="nav-contacts">Contacts</a>
+          <div class="lang-scroll-area"><div class="lang-dropdown">
+            <button class="lang-btn" id="lang-btn" type="button" aria-label="Select language" aria-expanded="false"><span class="lang-current" id="lang-current">English</span><svg class="lang-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <div class="lang-options" id="lang-options">
+              <button class="lang-option" data-value="en">English</button><button class="lang-option" data-value="uk">Українська</button><button class="lang-option" data-value="ru">Русский</button><button class="lang-option" data-value="it">Italiano</button><button class="lang-option" data-value="de">Deutsch</button><button class="lang-option" data-value="fr">Français</button><button class="lang-option" data-value="zh">中文</button>
+            </div>
+          </div></div>
+        </nav></div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-page ait-page">
+    <section class="project-hero container reveal reveal-fade">
+      <a class="back-link" href="../../projects.html" data-i18n="ait-back">Back to projects</a>
+      <p class="eyebrow" data-i18n="pa-eyebrow">Case Study</p>
+      <h1 data-i18n="proj-name-5">AI-Dekrov</h1>
+      <p class="tagline" data-i18n="ait-tagline">A public, moderated catalog of AI tools: services, coding agents, models, CLIs, desktop apps, and platforms - organized without the noise.</p>
+      <div class="hero-badges">
+        <span class="badge completed" data-i18n="ait-status">Launched</span>
+        <span class="badge neutral" data-i18n="ait-badge-1">Static GitHub Pages</span>
+        <span class="badge neutral" data-i18n="ait-badge-2">Moderated catalog</span>
+        <span class="badge neutral" data-i18n="ait-badge-3">Search + Filters</span>
+      </div>
+      <article class="glass-card repo-callout">
+        <p class="repo-callout-kicker" data-i18n="ait-open-kicker">Open source</p>
+        <h2 data-i18n="ait-open-title">Browse the catalog or inspect the code</h2>
+        <p class="repo-callout-text" data-i18n="ait-open-text">Every tool gets a dedicated page with official links, supported platforms, pricing, and install commands. The public data and source live in an open repository.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="https://ai.dekrov.com" target="_blank" rel="noreferrer noopener" data-i18n="ait-demo">Open live site</a>
+          <a class="btn-secondary" href="https://github.com/DekrovDev/AI-tools-Dekrov" target="_blank" rel="noreferrer noopener" data-i18n="proj-github">View on GitHub</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="container section reveal reveal-slide scroll-zoom">
+      <div class="split-grid">
+        <article class="glass-card mini-card">
+          <h3 data-i18n="pa-problem-title">Problem</h3>
+          <p data-i18n="ait-problem-text">AI tools are scattered across newsletters, bookmarks, and ad-driven lists. Finding a trustworthy service, model, or CLI usually means filtering through noise, outdated links, and vague marketing instead of a compact, factual reference.</p>
+        </article>
+        <article class="glass-card mini-card">
+          <h3 data-i18n="pa-solution-title">Solution</h3>
+          <p data-i18n="ait-solution-text">AI-Dekrov is a single, community-shared catalog where every entry has a verifiable official source, supported platforms, pricing, install commands, and a dedicated page - with unknown information left empty instead of invented.</p>
+        </article>
+      </div>
+      <div class="stat-band">
+        <div class="stat-item">
+          <strong data-i18n="ait-stat-1-title">Full-text search</strong>
+          <span data-i18n="ait-stat-1-text">Search by name, description, tag, category, platform, or model.</span>
+        </div>
+        <div class="stat-item">
+          <strong data-i18n="ait-stat-2-title">Smart filters</strong>
+          <span data-i18n="ait-stat-2-text">Filter by price and platform: Web, Desktop, CLI, VS Code, and API.</span>
+        </div>
+        <div class="stat-item">
+          <strong data-i18n="ait-stat-3-title">Your browser</strong>
+          <span data-i18n="ait-stat-3-text">Favorites and theme preference are saved locally and never leave the browser.</span>
+        </div>
+        <div class="stat-item">
+          <strong data-i18n="ait-stat-4-title">Per-tool pages</strong>
+          <span data-i18n="ait-stat-4-text">A dedicated page for every tool, with its official links and commands.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section reveal reveal-scale scroll-zoom">
+      <h2 data-i18n="ait-features-title">Features</h2>
+      <div class="architecture-grid">
+        <article class="glass-card architecture-card">
+          <h3 data-i18n="ait-feature-1-title">Explore without noise</h3>
+          <p data-i18n="ait-feature-1-text">Trusted links, supported platforms, pricing, and short factual descriptions are presented together, so you can compare options fast and decide.</p>
+        </article>
+        <article class="glass-card architecture-card">
+          <h3 data-i18n="ait-feature-2-title">Personal, private</h3>
+          <p data-i18n="ait-feature-2-text">Save favorites and your theme directly in the browser. Personal notes stay local and are never included in public data or submissions.</p>
+        </article>
+        <article class="glass-card architecture-card">
+          <h3 data-i18n="ait-feature-3-title">One page per tool</h3>
+          <p data-i18n="ait-feature-3-text">Open a dedicated page for any entry to see its official links, platforms, pricing model, install commands, and the facts behind it.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section reveal reveal-slide scroll-zoom">
+      <h2 data-i18n="ait-mod-title">How tools are added</h2>
+      <div class="split-grid">
+        <article class="glass-card mini-card">
+          <h3 data-i18n="ait-mod-card-1-title">Moderated submissions</h3>
+          <p data-i18n="ait-mod-card-1-text">Anyone can suggest a tool. Submissions are checked for valid JSON, URLs, enums, IDs, and duplicate entries, then a moderator reviews the result before anything is published. Nothing appears automatically.</p>
+        </article>
+        <article class="glass-card mini-card">
+          <h3 data-i18n="ait-mod-card-2-title">Three entry paths</h3>
+          <p data-i18n="ait-mod-card-2-text">Smart Add starts from an official URL and auto-builds a schema-valid record in GitHub Actions. Manual is a full editor, and JSON Import lets you validate schema-ready records before submitting for review.</p>
+        </article>
+      </div>
+      <article class="glass-card project-panel">
+        <ul class="project-points project-points-large">
+          <li data-i18n="ait-mod-li1">Smart Add, Manual, and JSON Import produce the same kind of checked, moderated submission.</li>
+          <li data-i18n="ait-mod-li2">For deeper local work, the owner can run a CLI that downloads a page, shows a preview, and writes to the data file only after confirmation.</li>
+          <li data-i18n="ait-mod-li3">The public catalog lives in the repository and is identical for every visitor.</li>
+          <li data-i18n="ait-mod-li4">Entries describe real tools with verifiable official sources; unknown information stays empty rather than invented.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="container section reveal reveal-slide scroll-zoom" id="ait-stack">
+      <h2 data-i18n="pa-stack-title">Technology Stack</h2>
+      <div class="stack-grid">
+        <a href="../What_is/tech.html?id=frontend&from=project-ai-tools" class="glass-card stack-item">
+          <strong>HTML + CSS + JS</strong>
+          <span data-i18n="ait-stack-1-text">Single-page catalog UI: search, filtering, favorites, and per-tool pages, all client-side.</span>
+        </a>
+        <a href="../What_is/tech.html?id=git&from=project-ai-tools" class="glass-card stack-item">
+          <strong>Git + GitHub Actions</strong>
+          <span data-i18n="ait-stack-2-text">Versioned public data and automated validation of tool submissions.</span>
+        </a>
+        <a href="https://ai.dekrov.com" target="_blank" rel="noreferrer noopener" class="glass-card stack-item">
+          <strong>JSON data</strong>
+          <span data-i18n="ait-stack-3-text">Catalog entries, labels, and site config stored as plain JSON in the repository.</span>
+        </a>
+        <a href="https://github.com/DekrovDev/AI-tools-Dekrov" target="_blank" rel="noreferrer noopener" class="glass-card stack-item">
+          <strong>Node.js tooling</strong>
+          <span data-i18n="ait-stack-4-text">CLI scripts and an analyzer that help inspect pages and build tool records.</span>
+        </a>
+        <a href="https://ai.dekrov.com" target="_blank" rel="noreferrer noopener" class="glass-card stack-item">
+          <strong>GitHub Pages</strong>
+          <span data-i18n="ait-stack-5-text">Static hosting with a custom domain - fast, cacheable, and dependency-free.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="container section reveal reveal-slide scroll-zoom">
+      <h2 data-i18n="pa-res-title">Result</h2>
+      <article class="glass-card project-panel">
+        <p data-i18n="ait-result-text">AI-Dekrov shows how a curated product can stay simple on the surface while having real structure underneath: a privacy-friendly static frontend, a publicly versioned data store, and a moderated contribution flow backed by automation. As a portfolio case it demonstrates product thinking around trust, maintainability, and community input - not just another list of links.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

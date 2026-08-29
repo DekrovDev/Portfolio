@@ -111,6 +111,9 @@ async function setLanguage(lang, updateUrl = true) {
             } else if (fromSource === 'project-dekrov-qr') {
                 backLink.href = "../QR/project-dekrov-qr.html#qr-stack";
                 backLinkKey = 'back-to-Dekrov-QR';
+            } else if (fromSource === 'project-ai-tools') {
+                backLink.href = "../AI.Tools/project-ai-tools.html#ait-stack";
+                backLinkKey = 'back-to-AI-Dekrov';
             } else {
                 backLink.href = "../../index.html";
             }
