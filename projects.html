@@ -182,54 +182,5 @@
     </main>
 
     <script src="scripts.js"></script>
-    <script>
-        // Theme toggle logic for projects.html
-        (function() {
-            const themeBtn = document.getElementById('theme-btn');
-            const savedTheme = localStorage.getItem('theme') || 'auto';
-            
-            const themeLabels = {
-                auto: 'Theme: Auto (system)',
-                light: 'Theme: Light',
-                dark: 'Theme: Dark'
-            };
-            
-            function applyTheme(theme) {
-                let actualTheme = theme;
-                
-                if (theme === 'auto') {
-                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    actualTheme = prefersDark ? 'dark' : 'light';
-                }
-                
-                document.documentElement.setAttribute('data-theme', theme);
-                
-                if (themeBtn) {
-                    themeBtn.setAttribute('data-theme', theme);
-                    themeBtn.setAttribute('title', themeLabels[theme]);
-                }
-            }
-            
-            function cycleTheme() {
-                const currentTheme = localStorage.getItem('theme') || 'auto';
-                const nextTheme = currentTheme === 'auto' ? 'light' : currentTheme === 'light' ? 'dark' : 'auto';
-                
-                localStorage.setItem('theme', nextTheme);
-                applyTheme(nextTheme);
-            }
-            
-            applyTheme(savedTheme);
-            
-            if (themeBtn) {
-                themeBtn.addEventListener('click', cycleTheme);
-            }
-            
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-                if (localStorage.getItem('theme') === 'auto') {
-                    applyTheme('auto');
-                }
-            });
-        })();
-    </script>
 </body>
 </html>

@@ -1916,6 +1916,10 @@ h3 {
     grid-column: span 12;
   }
 
+  .architecture-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .hero-layout,
   .specialties-grid,
   .featured-project,
@@ -2007,6 +2011,10 @@ h3 {
   }
 
   .contacts-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .architecture-grid {
     grid-template-columns: 1fr;
   }
 }
