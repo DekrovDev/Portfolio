@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260915">
   <script>
     (function () {
       const savedTheme = localStorage.getItem('theme') || 'auto';
@@ -75,7 +75,6 @@
       <div class="menu-overlay" id="menu-overlay">
         <div class="menu-card">
           <nav class="mobile-nav">
-            <a href="#about" data-i18n="nav-about">About me</a>
             <a href="#projects" data-i18n="nav-projects">Projects</a>
             <a href="#contacts" data-i18n="nav-contacts">Contacts</a>
 
@@ -140,49 +139,6 @@
           </div>
         </aside>
       </div>
-    </section>
-
-    <section id="about" class="container section reveal reveal-slide scroll-zoom">
-      <h2 data-i18n="about-title">About me</h2>
-      <article class="glass-card about-card">
-        <p data-i18n="about-text">
-          I am a person who finds it important to understand how and why everything works. I am interested in systems: technical, logical, and human. I dislike chaos and random decisions, so I break down any idea into its structure and bring it to a working, stable state.
-        </p>
-        <div class="about-grid">
-          <section class="about-block">
-            <h3 data-i18n="about-h-approach">Approach</h3>
-            <ul class="about-list">
-              <li data-i18n="about-app-1">First architecture, then implementation</li>
-              <li data-i18n="about-app-2">Failure Point and Scalability Analysis</li>
-              <li data-i18n="about-app-3">A system, not a collection of unrelated functions</li>
-            </ul>
-          </section>
-          <section class="about-block">
-            <h3 data-i18n="about-h-prog">Programming</h3>
-            <ul class="about-list">
-              <li data-i18n="about-prog-1">Python, asynchronous logic, web interfaces</li>
-              <li data-i18n="about-prog-2">Automation, events, database</li>
-              <li data-i18n="about-prog-3">Readable structure and extensible code</li>
-            </ul>
-          </section>
-          <section class="about-block">
-            <h3 data-i18n="about-h-tg">Telegram</h3>
-            <ul class="about-list">
-              <li data-i18n="about-tg-1">Bots as part of a complete system</li>
-              <li data-i18n="about-tg-2">Bundle: bot + web interface + database</li>
-              <li data-i18n="about-tg-3">Real-time monitoring and control</li>
-            </ul>
-          </section>
-          <section class="about-block">
-            <h3 data-i18n="about-h-val">Values</h3>
-            <ul class="about-list">
-              <li data-i18n="about-val-1">Honesty and directness</li>
-              <li data-i18n="about-val-2">Calm, working dialogue</li>
-              <li data-i18n="about-val-3">Thoughtful style in code and interface</li>
-            </ul>
-          </section>
-        </div>
-      </article>
     </section>
 
     <section id="tech-stack" class="container section reveal reveal-slide scroll-zoom">
@@ -316,6 +272,20 @@
             <div class="projects-btn-copy">
               <span class="projects-btn-kicker" data-i18n="cont-cta-kicker">Open for work</span>
               <span class="projects-btn-title" data-i18n="view-donate">Donate</span>
+            </div>
+            <span class="btn-arrow">→</span>
+          </a>
+
+          <a class="glass-card project-card projects-btn-new" href="sites.html">
+            <div class="projects-btn-icon" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="17" fill="rgba(111,211,255,0.1)" stroke="#6fd3ff" stroke-width="1.6"/>
+                <path d="M3.5 20H36.5M20 3C24.8 7.5 27.5 13.6 27.5 20C27.5 26.4 24.8 32.5 20 37M20 3C15.2 7.5 12.5 13.6 12.5 20C12.5 26.4 15.2 32.5 20 37" stroke="#6fd3ff" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="projects-btn-copy">
+              <span class="projects-btn-kicker" data-i18n="sites-card-kicker">Online projects</span>
+              <span class="projects-btn-title" data-i18n="sites-card-title">My websites</span>
             </div>
             <span class="btn-arrow">→</span>
           </a>

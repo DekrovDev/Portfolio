@@ -854,55 +854,6 @@ h3 {
   font-weight: 700;
 }
 
-.about-card {
-  max-width: 860px;
-  padding: 1.35rem 1.35rem 1.45rem;
-  color: var(--text);
-}
-
-.about-card > p {
-  margin: 0 0 1rem;
-  color: var(--text-muted);
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
-}
-
-.about-block {
-  padding: 0.85rem 0.9rem;
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-sm);
-  background: var(--surface);
-}
-
-.about-block h3 {
-  margin: 0 0 0.45rem;
-  font-size: 0.98rem;
-  color: var(--text);
-}
-
-.about-list {
-  margin: 0;
-  padding-left: 1rem;
-  color: var(--text-muted);
-}
-
-.about-list li {
-  margin-bottom: 0.3rem;
-}
-
-[data-theme="light"] .about-block {
-  background: rgba(241, 245, 249, 0.6);
-  border-color: rgba(15, 23, 42, 0.1);
-}
-
-[data-theme="light"] .about-block h3 {
-  color: #0f172a;
-}
-
 .hero {
   padding: 6.5rem 0 4.5rem;
 }
@@ -1416,6 +1367,51 @@ h3 {
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.35;
+}
+
+.sites-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding-bottom: 3rem;
+}
+
+.site-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 250px;
+  padding: 1.5rem;
+  transition: transform var(--ease), border-color var(--ease), box-shadow var(--ease);
+}
+
+.site-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(111, 211, 255, 0.5);
+  box-shadow: 0 24px 45px rgba(9, 25, 58, 0.62), 0 0 25px rgba(111, 211, 255, 0.1);
+}
+
+.site-card-kicker {
+  margin-bottom: 0.7rem;
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.site-card h2 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.45rem, 2.8vw, 2rem);
+}
+
+.site-card p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.site-card .project-link {
+  margin-top: auto;
 }
 
 @media (max-width: 600px) {
@@ -2006,15 +2002,15 @@ h3 {
     width: 46%;
   }
 
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-
   .contacts-wrap {
     grid-template-columns: 1fr;
   }
 
   .architecture-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sites-grid {
     grid-template-columns: 1fr;
   }
 }

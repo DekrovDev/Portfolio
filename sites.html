@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NY04NMP3VW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NY04NMP3VW');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" data-i18n-content="sites-meta-description" content="Public websites by Dekrov: a developer portfolio and a curated AI tools catalog.">
+  <title data-i18n="sites-page-title">My websites | Dekrov.dev</title>
+  <link rel="icon" type="image/png" href="assets/favicon-rounded.png">
+  <link rel="apple-touch-icon" href="assets/favicon-rounded.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20260915">
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme') || 'auto';
+      if (savedTheme === 'dark' || savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+      document.documentElement.setAttribute('data-theme-mode', savedTheme);
+    })();
+  </script>
+</head>
+<body>
+  <div class="bg-orb orb-1" aria-hidden="true"></div>
+  <div class="bg-orb orb-2" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header container">
+    <a class="brand" href="index.html#hero">Dekrov.dev</a>
+    <div class="header-actions">
+      <div class="theme-toggle-wrapper">
+        <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme" title="Theme: Auto">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-auto" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        </button>
+      </div>
+
+      <div class="menu-wrapper">
+        <button class="menu-toggle" id="menu-btn" aria-label="Toggle menu" data-i18n-aria-label="menu-toggle-label"><span></span><span></span><span></span></button>
+        <div class="menu-overlay" id="menu-overlay">
+          <div class="menu-card">
+            <nav class="mobile-nav">
+              <a href="index.html#projects" data-i18n="nav-projects">Projects</a>
+              <a href="index.html#contacts" data-i18n="nav-contacts">Contacts</a>
+              <a href="projects.html" data-i18n="sites-projects-link">All projects</a>
+              <div class="lang-scroll-area">
+                <div class="lang-dropdown">
+                  <button class="lang-btn" id="lang-btn" type="button" aria-label="Select language" aria-expanded="false"><span class="lang-current" id="lang-current">English</span><svg class="lang-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                  <div class="lang-options" id="lang-options">
+                    <button class="lang-option" data-value="en">English</button>
+                    <button class="lang-option" data-value="uk">Українська</button>
+                    <button class="lang-option" data-value="ru">Русский</button>
+                    <button class="lang-option" data-value="it">Italiano</button>
+                    <button class="lang-option" data-value="de">Deutsch</button>
+                    <button class="lang-option" data-value="fr">Français</button>
+                    <button class="lang-option" data-value="zh">中文</button>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="project-index-hero reveal reveal-fade">
+      <a href="index.html#projects" class="back-link" data-i18n="sites-back">Back to home</a>
+      <p class="eyebrow project-index-hero-eyebrow" data-i18n="sites-eyebrow">Online projects</p>
+      <h1 data-i18n="sites-title">My websites</h1>
+      <p class="project-index-hero-intro" data-i18n="sites-intro">Two public products built around practical workflows: this portfolio and a curated AI catalog.</p>
+    </section>
+
+    <section class="sites-grid reveal reveal-slide" aria-label="Websites" data-i18n-aria-label="sites-title">
+      <article class="glass-card site-card">
+        <span class="site-card-kicker" data-i18n="sites-portfolio-kicker">Main site</span>
+        <h2 data-i18n="sites-portfolio-title">Dekrov.dev</h2>
+        <p data-i18n="sites-portfolio-text">My main portfolio: projects, skills, services, and ways to get in touch.</p>
+        <a class="project-link" href="https://dekrov.com" target="_blank" rel="noreferrer noopener" data-i18n="sites-visit">Visit site</a>
+      </article>
+
+      <article class="glass-card site-card">
+        <span class="site-card-kicker" data-i18n="sites-ai-kicker">AI catalog</span>
+        <h2 data-i18n="sites-ai-title">AI-Dekrov</h2>
+        <p data-i18n="sites-ai-text">A curated catalog of AI tools with categories, search, filters, favorites, and detailed pages for each tool.</p>
+        <a class="project-link" href="https://ai.dekrov.com" target="_blank" rel="noreferrer noopener" data-i18n="sites-visit">Visit site</a>
+      </article>
+    </section>
+  </main>
+
+  <script src="scripts.js?v=20260915"></script>
+</body>
+</html>
