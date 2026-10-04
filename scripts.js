@@ -18,6 +18,11 @@ const PROJECT_CASE_CONFIG = {
         titleKey: "project-ai-tools-case-title",
         textKey: "project-ai-tools-case-text",
         hideGenericSections: false
+    },
+    "project-firefox-ghost-ui": {
+        titleKey: "project-firefox-ghost-ui-case-title",
+        textKey: "project-firefox-ghost-ui-case-text",
+        hideGenericSections: false
     }
 };
 
@@ -75,6 +80,12 @@ const PROJECT_CASE_FALLBACKS = {
             title: "Project Application: Dekrov QR",
             text: "Dekrov QR uses semantic HTML, responsive CSS, and vanilla JavaScript as one compact browser product. The interface adapts its fields to each QR format, validates input, renders a live canvas preview, and exports PNG or SVG files without a backend."
         }
+    },
+    "project-firefox-ghost-ui": {
+        "frontend": {
+            title: "Project Application: Firefox Ghost UI",
+            text: "In Firefox Ghost UI, CSS is the primary engine for layout, transitions, and native browser chrome customization. It shapes the floating toolbar, tab hover behavior, and download island without requiring heavy extensions."
+        }
     }
 };
 
@@ -119,6 +130,9 @@ async function setLanguage(lang, updateUrl = true) {
             } else if (fromSource === 'project-ai-tools') {
                 backLink.href = "../AI.Tools/project-ai-tools.html#ait-stack";
                 backLinkKey = 'back-to-AI-Dekrov';
+            } else if (fromSource === 'project-firefox-ghost-ui') {
+                backLink.href = "../Firefox.Ghost.UI/project-firefox-ghost-ui.html#gui-stack";
+                backLinkKey = 'back-to-Firefox-Ghost-UI';
             } else {
                 backLink.href = "../../index.html";
             }
