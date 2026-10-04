@@ -8,6 +8,9 @@ ROOT_DIR = Path(__file__).resolve().parent
 
 
 class CustomHandler(SimpleHTTPRequestHandler):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, directory=str(ROOT_DIR), **kwargs)
+
     def translate_path(self, path):
         if path == "/" or path == "":
             path = "/index.html"

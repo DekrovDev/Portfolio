@@ -334,13 +334,13 @@
             qrModalCopy.dataset.address = payload.address;
             qrModalImage.src = buildQR(payload.address);
             qrModal.hidden = false;
-            document.body.classList.add('idea-modal-open');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeQrModal() {
             if (!qrModal || qrModal.hidden) return;
             qrModal.hidden = true;
-            document.body.classList.remove('idea-modal-open');
+            document.body.style.overflow = '';
             if (lastQrTrigger && typeof lastQrTrigger.focus === 'function') {
                 lastQrTrigger.focus();
             }
