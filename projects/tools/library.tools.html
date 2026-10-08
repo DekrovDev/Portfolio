@@ -1,50 +1,63 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library | Tools & Resources</title>
-    <link rel="icon" type="image/png" href="../../assets/favicon-rounded.png">
-    <link rel="apple-touch-icon" href="../../assets/favicon-rounded.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../assets/favicon-dk.png?v=20261006-dk">
+    <link rel="apple-touch-icon" href="../../assets/favicon-dk.png?v=20261006-dk">
+
+
+
     <link rel="stylesheet" href="../../style.css">
-    <script>
-      (function () {
-        const savedTheme = localStorage.getItem('theme') || 'auto';
-        if (savedTheme === 'dark' || savedTheme === 'light') {
-          document.documentElement.setAttribute('data-theme', savedTheme);
-        } else {
-          document.documentElement.removeAttribute('data-theme');
-        }
-        document.documentElement.setAttribute('data-theme-mode', savedTheme);
-      })();
-    </script>
+
+<link rel="stylesheet" href="../../monochrome.css?v=20261007-bevel15">
+<link rel="stylesheet" href="../../assets/editorial.css?v=20261008-audit22">
 </head>
-<body>
+<body class="library-page">
+<a class="skip-link" href="#main-content" data-i18n="ui-skip-main">Skip to content</a>
     <div class="bg-orb orb-1" aria-hidden="true"></div>
     <div class="bg-grid" aria-hidden="true"></div>
 
     <header class="site-header container">
-    <a class="brand" href="../../index.html">Dekrov.dev</a>
-    <a class="btn-primary" href="../../index.html" style="padding: 0.5rem 1rem; font-size: 0.8rem;">← Back</a>
+    <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true"><img src="../../assets/favicon-dk.png" width="36" height="36" alt=""><svg class="brand-sheen" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><defs><mask id="dk-metal-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="400" height="400"><image href="../../assets/favicon-dk.png" width="400" height="400"/></mask><linearGradient id="dk-silver" x1="0" x2="1"><stop offset="0" stop-color="white" stop-opacity="0"/><stop offset=".5" stop-color="white" stop-opacity=".85"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient></defs><g mask="url(#dk-metal-mask)"><rect class="dk-glint" x="0" y="-50" width="150" height="500" fill="url(#dk-silver)"/></g></svg></span><span>Dekrov.dev</span></a>
+    <div class="header-actions"><div class="header-language">
+              <div class="lang-dropdown">
+                <button class="lang-btn" id="lang-btn" aria-controls="lang-options" type="button" aria-label="Select language" aria-expanded="false">
+                  <span class="lang-current" id="lang-current">EN</span>
+                  <svg class="lang-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="lang-options" id="lang-options">
+                  <button class="lang-option" data-value="en">English</button>
+                  <button class="lang-option" data-value="uk">Українська</button>
+                  <button class="lang-option" data-value="ru">Русский</button>
+                  <button class="lang-option" data-value="it">Italiano</button>
+                  <button class="lang-option" data-value="de">Deutsch</button>
+                  <button class="lang-option" data-value="fr">Français</button>
+                  <button class="lang-option" data-value="zh">中文</button>
+                </div>
+              </div>
+            </div></div>
     </header>
 
-    <main class="container section reveal-fade">
+    <main class="container section reveal-fade" id="main-content" tabindex="-1">
+    <a class="back-link" href="../../index.html" data-i18n="back-to-home">To home</a>
     <h1 data-i18n="lib-title">Developer Library</h1>
     <p class="tagline" data-i18n="lib-tagline">Websites and tools I use for work and inspiration.</p>
 
     <div class="tech-grid" style="margin-top: 3rem;">
-        
+
         <a href="https://reactbits.dev" target="_blank" rel="noopener" class="glass-card tech-card">
         <span class="tech-name">React Bits</span>
-        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 5px;">UI Components & Animations</p>
+        <p data-i18n="ui-library-category">UI Components &amp; Animations</p>
         </a>
 
     </div>
     </main>
 
-    <script src="../../scripts.js"></script>
+    <script src="../../scripts.js?v=20261008-audit22"></script>
+  <script src="../../assets/micro-motion.js?v=20261008-review18"></script>
 </body>
 </html>

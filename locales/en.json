@@ -660,5 +660,16 @@
     "fg-stack-ps": "Automates profile discovery, backup creation, and preferences management.",
     "fg-stack-batch": "Double-click Windows launcher ensuring execution policy bypass for installer.",
     "fg-stack-gecko": "Native Firefox engine flags enabled via user.js configuration.",
-    "fg-result-text": "Firefox Ghost UI creates a modern, ultra-clean web browsing experience on Windows: pages get the maximum possible screen area while tabs, controls, and downloads remain instantly accessible."
+    "fg-result-text": "Firefox Ghost UI creates a modern, ultra-clean web browsing experience on Windows: pages get the maximum possible screen area while tabs, controls, and downloads remain instantly accessible.",
+    "ui-wave-pause": "Pause waves",
+    "ui-wave-resume": "Resume waves",
+    "ui-wave-still": "Waves paused",
+    "ui-skip-main": "Skip to content",
+    "ui-case-details": "Architecture & details",
+    "ui-library-category": "UI Components & Animations",
+    "ui-tech-unavailable-title": "Technology unavailable",
+    "ui-tech-unavailable-text": "Choose a technology from the main page or a project to view its details.",
+    "ui-qr-open": "Open QR preview",
+    "ui-qr-close": "Close QR preview"
+
 }

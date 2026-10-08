@@ -660,5 +660,16 @@
     "fg-stack-ps": "负责自动化配置文件夹探测、环境快照备份与参数注入。",
     "fg-stack-batch": "双击即用的 CMD 启动引导脚本，支持本地进程级安全绕过执行策略限制。",
     "fg-stack-gecko": "通过 user.js 配置文件激活的 Firefox Gecko 引擎原生底层特性。",
-    "fg-result-text": "Firefox Ghost UI 在 Windows 上带来了现代、极简的沉浸式浏览体验：网页独享全部屏幕视野，同时标签页、工具栏与下载进度依然触手可及。"
+    "fg-result-text": "Firefox Ghost UI 在 Windows 上带来了现代、极简的沉浸式浏览体验：网页独享全部屏幕视野，同时标签页、工具栏与下载进度依然触手可及。",
+    "ui-wave-pause": "暂停波浪",
+    "ui-wave-resume": "继续波浪",
+    "ui-wave-still": "波浪已暂停",
+    "ui-skip-main": "跳转到内容",
+    "ui-case-details": "架构与详情",
+    "ui-library-category": "界面组件与动画",
+    "ui-tech-unavailable-title": "未找到技术",
+    "ui-tech-unavailable-text": "请从首页或项目中选择一项技术以查看详细信息。",
+    "ui-qr-open": "打开二维码预览",
+    "ui-qr-close": "关闭二维码预览"
+
 }

@@ -660,5 +660,16 @@
     "fg-stack-ps": "Automatise la recherche de profils, la création de sauvegardes et les réglages.",
     "fg-stack-batch": "Lanceur CMD pour démarrer en double-clic avec contournement local d'ExecutionPolicy.",
     "fg-stack-gecko": "Paramètres natifs du moteur Firefox activés via la configuration user.js.",
-    "fg-result-text": "Firefox Ghost UI offre une expérience de navigation moderne et ultra-épurée sur Windows : les pages profitent de tout l'écran tout en gardant les commandes à portée de main."
+    "fg-result-text": "Firefox Ghost UI offre une expérience de navigation moderne et ultra-épurée sur Windows : les pages profitent de tout l'écran tout en gardant les commandes à portée de main.",
+    "ui-wave-pause": "Mettre les vagues en pause",
+    "ui-wave-resume": "Reprendre les vagues",
+    "ui-wave-still": "Vagues en pause",
+    "ui-skip-main": "Aller au contenu",
+    "ui-case-details": "Architecture et détails",
+    "ui-library-category": "Composants UI et animations",
+    "ui-tech-unavailable-title": "Technologie indisponible",
+    "ui-tech-unavailable-text": "Choisissez une technologie sur la page principale ou dans un projet pour consulter ses détails.",
+    "ui-qr-open": "Ouvrir l’aperçu du QR code",
+    "ui-qr-close": "Fermer l’aperçu du QR code"
+
 }

@@ -1,85 +1,31 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NY04NMP3VW"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-NY04NMP3VW');
-    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Dekrov.dev</title>
-    <link rel="icon" type="image/png" href="assets/favicon-rounded.png">
-    <link rel="apple-touch-icon" href="assets/favicon-rounded.png">
+    <link rel="icon" type="image/png" href="assets/favicon-dk.png?v=20261006-dk">
+    <link rel="apple-touch-icon" href="assets/favicon-dk.png?v=20261006-dk">
     <link rel="stylesheet" href="style.css?v=20260915">
-    <script>
-        (function () {
-            const savedTheme = localStorage.getItem('theme') || 'auto';
-            
-            // Auto - не ставим атрибут (работает :root)
-            // Dark/Light - ставим атрибут
-            if (savedTheme === 'dark' || savedTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', savedTheme);
-            } else {
-                document.documentElement.removeAttribute('data-theme');
-            }
-            
-            document.documentElement.setAttribute('data-theme-mode', savedTheme);
-        })();
-    </script>
+
+<link rel="stylesheet" href="monochrome.css?v=20261007-bevel15">
+<link rel="stylesheet" href="assets/editorial.css?v=20261008-audit22">
 </head>
 <body>
+<a class="skip-link" href="#main-content" data-i18n="ui-skip-main">Skip to content</a>
     <div class="bg-orb orb-1" aria-hidden="true"></div>
     <div class="bg-grid" aria-hidden="true"></div>
 
     <header class="site-header container">
-        <a class="brand" href="index.html#hero">Dekrov.dev</a>
+        <a class="brand" href="index.html#hero"><span class="brand-mark" aria-hidden="true"><img src="assets/favicon-dk.png" width="36" height="36" alt=""><svg class="brand-sheen" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><defs><mask id="dk-metal-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="400" height="400"><image href="assets/favicon-dk.png" width="400" height="400"/></mask><linearGradient id="dk-silver" x1="0" x2="1"><stop offset="0" stop-color="white" stop-opacity="0"/><stop offset=".5" stop-color="white" stop-opacity=".85"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient></defs><g mask="url(#dk-metal-mask)"><rect class="dk-glint" x="0" y="-50" width="150" height="500" fill="url(#dk-silver)"/></g></svg></span><span>Dekrov.dev</span></a>
 
-        <div class="header-actions">
-            <div class="theme-toggle-wrapper">
-                <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme" title="Theme: Auto">
-                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg class="icon-auto" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                        <line x1="8" y1="21" x2="16" y2="21"></line>
-                        <line x1="12" y1="17" x2="12" y2="21"></line>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="menu-wrapper">
-                <button class="menu-toggle" id="menu-btn" aria-label="Toggle Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            <div class="menu-overlay" id="menu-overlay">
-                <div class="menu-card">
-                    <nav class="mobile-nav">
-                        <a href="index.html#projects" data-i18n="nav-projects">Projects</a>
-                        <a href="index.html#contacts" data-i18n="nav-contacts">Contacts</a>
-                        <a href="index.html" data-i18n="nav-all-projects">Home</a>
-                        <div class="lang-scroll-area">
+        <div class="header-actions"><div class="header-language">
                             <div class="lang-dropdown">
-                                <button class="lang-btn" id="lang-btn" type="button" aria-label="Select language" aria-expanded="false">
-                                    <span class="lang-current" id="lang-current">English</span>
+                                <button class="lang-btn" id="lang-btn" aria-controls="lang-options" type="button" aria-label="Select language" aria-expanded="false">
+                                    <span class="lang-current" id="lang-current">EN</span>
                                     <svg class="lang-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <polyline points="6 9 12 15 18 9"></polyline>
                                     </svg>
@@ -95,6 +41,21 @@
                                 </div>
                             </div>
                         </div>
+
+
+            <div class="menu-wrapper">
+                <button class="menu-toggle" id="menu-btn" aria-label="Toggle Menu" data-i18n-aria-label="menu-toggle-label">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            <div class="menu-overlay" id="menu-overlay" inert aria-hidden="true">
+                <div class="menu-card">
+                    <nav class="mobile-nav">
+                        <a href="index.html#projects" data-i18n="nav-projects">Projects</a>
+                        <a href="index.html#contacts" data-i18n="nav-contacts">Contacts</a>
+                        <a href="index.html" data-i18n="nav-all-projects">Home</a>
+
                     </nav>
                 </div>
             </div>
@@ -102,7 +63,7 @@
         </div>
     </header>
 
-    <main class="container">
+    <main class="container" id="main-content" tabindex="-1">
         <section class="project-index-hero">
             <a href="index.html" class="back-link" data-i18n="back-to-home">To home</a>
             <p class="eyebrow project-index-hero-eyebrow" data-i18n="all-projects-eyebrow">Selected work</p>
@@ -111,9 +72,9 @@
         </section>
 
         <div class="architecture-grid">
-            <article class="glass-card architecture-card">
+            <article class="glass-card architecture-card" data-project-index="01">
                 <div class="project-meta" style="margin-bottom: 0.5rem;">
-                    <h3 data-i18n="proj-name-2" style="font-size: 1.1rem; margin: 0;">Dekrov AI Userbot</h3>
+                    <h2 id="project-name-01" data-i18n="proj-name-2" style="font-size: 1.1rem; margin: 0;">Dekrov AI Userbot</h2>
                     <span class="status completed" data-i18n="proj-status-2" style="font-size: 0.7rem; padding: 2px 8px;">Completed successfully</span>
                 </div>
 
@@ -125,12 +86,12 @@
                     Telegram-first AI userbot with control bot, memory, reminders, live data, and natural-language actions.
                 </p>
 
-                <a class="project-link" href="projects/AI.Userbot/project-ai-userbot.html" data-i18n="proj-more" style="font-size: 0.85rem; margin-top: auto;">Details</a>
+                <a id="project-details-01" aria-labelledby="project-name-01 project-details-01" class="project-link" href="projects/AI.Userbot/project-ai-userbot.html" data-i18n="proj-more" style="font-size: 0.85rem; margin-top: auto;">Details</a>
             </article>
 
-            <article class="glass-card architecture-card">
+            <article class="glass-card architecture-card" data-project-index="02">
                 <div class="project-meta" style="margin-bottom: 0.5rem;">
-                    <h3 data-i18n="proj-name-3" style="font-size: 1.1rem; margin: 0;">Visitor AI Assistant</h3>
+                    <h2 id="project-name-02" data-i18n="proj-name-3" style="font-size: 1.1rem; margin: 0;">Visitor AI Assistant</h2>
                     <span class="status completed" data-i18n="proj-status-3" style="font-size: 0.7rem; padding: 2px 8px;">Completed successfully</span>
                 </div>
 
@@ -142,12 +103,12 @@
                     Public-facing Telegram AI assistant for consultations, soft routing, session memory, moderation, and owner handoff.
                 </p>
 
-                <a class="project-link" href="projects/Visitor/project-visitor-ai.html" data-i18n="proj-more" style="font-size: 0.85rem; margin-top: auto;">Details</a>
+                <a id="project-details-02" aria-labelledby="project-name-02 project-details-02" class="project-link" href="projects/Visitor/project-visitor-ai.html" data-i18n="proj-more" style="font-size: 0.85rem; margin-top: auto;">Details</a>
             </article>
 
-            <article class="glass-card architecture-card">
+            <article class="glass-card architecture-card" data-project-index="03">
                 <div class="project-meta" style="margin-bottom: 0.5rem;">
-                    <h3 data-i18n="proj-name-4" style="font-size: 1.1rem; margin: 0;">Dekrov QR</h3>
+                    <h2 id="project-name-03" data-i18n="proj-name-4" style="font-size: 1.1rem; margin: 0;">Dekrov QR</h2>
                     <span class="status completed" data-i18n="proj-status-4" style="font-size: 0.7rem; padding: 2px 8px;">Completed successfully</span>
                 </div>
 
@@ -159,12 +120,12 @@
                     Privacy-friendly QR code generator for links, text, Wi-Fi, contacts, and more — all in the browser.
                 </p>
 
-                <a class="project-link" href="projects/QR/project-dekrov-qr.html" data-i18n="proj-more" style="font-size: 0.85rem; margin-top: auto;">Details</a>
+                <a id="project-details-03" aria-labelledby="project-name-03 project-details-03" class="project-link" href="projects/QR/project-dekrov-qr.html" data-i18n="proj-more" style="font-size: 0.85rem; margin-top: auto;">Details</a>
             </article>
 
-            <article class="glass-card architecture-card">
+            <article class="glass-card architecture-card" data-project-index="04">
                 <div class="project-meta" style="margin-bottom: 0.5rem;">
-                    <h3 data-i18n="proj-name-5" style="font-size: 1.1rem; margin: 0;">AI-Dekrov</h3>
+                    <h2 id="project-name-04" data-i18n="proj-name-5" style="font-size: 1.1rem; margin: 0;">AI-Dekrov</h2>
                     <span class="status completed" data-i18n="ait-status" style="font-size: 0.7rem; padding: 2px 8px;">Launched</span>
                 </div>
 
@@ -176,12 +137,12 @@
                     Public catalog of AI tools with search, filters, favorites, and moderated community submissions.
                 </p>
 
-                <a class="project-link" href="projects/AI.Tools/project-ai-tools.html" data-i18n="proj-more" style="font-size: 0.85rem; margin-top: auto;">Details</a>
+                <a id="project-details-04" aria-labelledby="project-name-04 project-details-04" class="project-link" href="projects/AI.Tools/project-ai-tools.html" data-i18n="proj-more" style="font-size: 0.85rem; margin-top: auto;">Details</a>
             </article>
 
-            <article class="glass-card architecture-card">
+            <article class="glass-card architecture-card" data-project-index="05">
                 <div class="project-meta" style="margin-bottom: 0.5rem;">
-                    <h3 data-i18n="proj-name-6" style="font-size: 1.1rem; margin: 0;">Firefox Ghost UI</h3>
+                    <h2 id="project-name-05" data-i18n="proj-name-6" style="font-size: 1.1rem; margin: 0;">Firefox Ghost UI</h2>
                     <span class="status completed" data-i18n="proj-status-6" style="font-size: 0.7rem; padding: 2px 8px;">Completed successfully</span>
                 </div>
 
@@ -193,11 +154,12 @@
                     Floating Firefox toolbar with native vertical tabs, download progress island, and automatic Windows installer.
                 </p>
 
-                <a class="project-link" href="projects/Firefox.Ghost.UI/project-firefox-ghost-ui.html" data-i18n="proj-more" style="font-size: 0.85rem; margin-top: auto;">Details</a>
+                <a id="project-details-05" aria-labelledby="project-name-05 project-details-05" class="project-link" href="projects/Firefox.Ghost.UI/project-firefox-ghost-ui.html" data-i18n="proj-more" style="font-size: 0.85rem; margin-top: auto;">Details</a>
             </article>
         </div>
     </main>
 
-    <script src="scripts.js?v=20260915"></script>
+    <script src="scripts.js?v=20261008-audit22"></script>
+  <script src="assets/micro-motion.js?v=20261008-review18"></script>
 </body>
 </html>

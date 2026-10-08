@@ -1,81 +1,33 @@
-﻿<!doctype html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NY04NMP3VW"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-NY04NMP3VW');
-    </script>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="don-page-title">Support | Dekrov.dev</title>
-    <link rel="icon" type="image/png" href="../../assets/favicon-rounded.png">
-    <link rel="apple-touch-icon" href="../../assets/favicon-rounded.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../assets/favicon-dk.png?v=20261006-dk">
+    <link rel="apple-touch-icon" href="../../assets/favicon-dk.png?v=20261006-dk">
+
+
+
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="./donate.css">
-    <script>
-        (function () {
-            const savedTheme = localStorage.getItem('theme') || 'auto';
-            if (savedTheme === 'dark' || savedTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', savedTheme);
-            } else {
-                document.documentElement.removeAttribute('data-theme');
-            }
-            document.documentElement.setAttribute('data-theme-mode', savedTheme);
-        })();
-    </script>
+
+<link rel="stylesheet" href="../../monochrome.css?v=20261007-bevel15">
+<link rel="stylesheet" href="../../assets/editorial.css?v=20261008-audit22">
 </head>
 <body>
+<a class="skip-link" href="#main-content" data-i18n="ui-skip-main">Skip to content</a>
     <div class="bg-orb orb-1" aria-hidden="true"></div>
     <div class="bg-grid" aria-hidden="true"></div>
 
     <header class="site-header container">
-        <a class="brand" href="../../index.html#hero">Dekrov.dev</a>
-        <div class="header-actions">
-            <div class="theme-toggle-wrapper">
-                <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme" title="Theme: Auto">
-                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg class="icon-auto" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                        <line x1="8" y1="21" x2="16" y2="21"></line>
-                        <line x1="12" y1="17" x2="12" y2="21"></line>
-                    </svg>
-                </button>
-            </div>
-            <div class="menu-wrapper">
-                <button class="menu-toggle" id="menu-btn" aria-label="Toggle Menu" data-i18n-aria-label="menu-toggle-label">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <div class="menu-overlay" id="menu-overlay">
-                    <div class="menu-card">
-                        <nav class="mobile-nav">
-                            <a href="../../index.html#projects" data-i18n="nav-projects">Projects</a>
-                            <a href="../../index.html#contacts" data-i18n="nav-contacts">Contacts</a>
-                            <a href="../../index.html" data-i18n="nav-all-projects">Home</a>
-                            <div class="lang-scroll-area">
+        <a class="brand" href="../../index.html#hero"><span class="brand-mark" aria-hidden="true"><img src="../../assets/favicon-dk.png" width="36" height="36" alt=""><svg class="brand-sheen" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><defs><mask id="dk-metal-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="400" height="400"><image href="../../assets/favicon-dk.png" width="400" height="400"/></mask><linearGradient id="dk-silver" x1="0" x2="1"><stop offset="0" stop-color="white" stop-opacity="0"/><stop offset=".5" stop-color="white" stop-opacity=".85"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient></defs><g mask="url(#dk-metal-mask)"><rect class="dk-glint" x="0" y="-50" width="150" height="500" fill="url(#dk-silver)"/></g></svg></span><span>Dekrov.dev</span></a>
+        <div class="header-actions"><div class="header-language">
                                 <div class="lang-dropdown">
-                                    <button class="lang-btn" id="lang-btn" type="button" aria-label="Select language" aria-expanded="false">
-                                        <span class="lang-current" id="lang-current">English</span>
+                                    <button class="lang-btn" id="lang-btn" aria-controls="lang-options" type="button" aria-label="Select language" aria-expanded="false">
+                                        <span class="lang-current" id="lang-current">EN</span>
                                         <svg class="lang-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <polyline points="6 9 12 15 18 9"></polyline>
                                         </svg>
@@ -91,6 +43,20 @@
                                     </div>
                                 </div>
                             </div>
+
+            <div class="menu-wrapper">
+                <button class="menu-toggle" id="menu-btn" aria-label="Toggle Menu" data-i18n-aria-label="menu-toggle-label">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="menu-overlay" id="menu-overlay" inert aria-hidden="true">
+                    <div class="menu-card">
+                        <nav class="mobile-nav">
+                            <a href="../../index.html#projects" data-i18n="nav-projects">Projects</a>
+                            <a href="../../index.html#contacts" data-i18n="nav-contacts">Contacts</a>
+                            <a href="../../index.html" data-i18n="nav-all-projects">Home</a>
+
                         </nav>
                     </div>
                 </div>
@@ -98,7 +64,7 @@
         </div>
     </header>
 
-    <main class="container support-page">
+    <main class="container support-page" id="main-content" tabindex="-1">
         <section class="support-hero reveal-fade">
             <a href="../../index.html" class="back-link" data-i18n="back-to-home">Back</a>
             <p class="eyebrow support-eyebrow" data-i18n="don-eyebrow">Support</p>
@@ -124,7 +90,7 @@
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
-                    <div class="accordion-panel" role="region">
+                    <div class="accordion-panel" role="region" inert aria-hidden="true">
                         <div class="accordion-panel-inner">
                             <div class="accordion-content">
                                 <div class="accordion-address-block">
@@ -139,7 +105,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="accordion-qr">
+                                <div class="accordion-qr" role="button" tabindex="0" aria-label="Open QR preview" data-i18n-aria-label="ui-qr-open">
                                     <img src="" alt="BTC QR" loading="lazy">
                                 </div>
                             </div>
@@ -161,7 +127,7 @@
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
-                    <div class="accordion-panel" role="region">
+                    <div class="accordion-panel" role="region" inert aria-hidden="true">
                         <div class="accordion-panel-inner">
                             <div class="accordion-content">
                                 <div class="accordion-address-block">
@@ -176,7 +142,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="accordion-qr">
+                                <div class="accordion-qr" role="button" tabindex="0" aria-label="Open QR preview" data-i18n-aria-label="ui-qr-open">
                                     <img src="" alt="ETH QR" loading="lazy">
                                 </div>
                             </div>
@@ -198,7 +164,7 @@
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
-                    <div class="accordion-panel" role="region">
+                    <div class="accordion-panel" role="region" inert aria-hidden="true">
                         <div class="accordion-panel-inner">
                             <div class="accordion-content">
                                 <div class="accordion-address-block">
@@ -213,7 +179,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="accordion-qr">
+                                <div class="accordion-qr" role="button" tabindex="0" aria-label="Open QR preview" data-i18n-aria-label="ui-qr-open">
                                     <img src="" alt="TON QR" loading="lazy">
                                 </div>
                             </div>
@@ -235,7 +201,7 @@
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
-                    <div class="accordion-panel" role="region">
+                    <div class="accordion-panel" role="region" inert aria-hidden="true">
                         <div class="accordion-panel-inner">
                             <div class="accordion-content">
                                 <div class="network-switcher">
@@ -254,7 +220,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="accordion-qr" id="usdt-qr">
+                                <div class="accordion-qr" role="button" tabindex="0" aria-label="Open QR preview" data-i18n-aria-label="ui-qr-open" id="usdt-qr">
                                     <img src="" alt="USDT QR" loading="lazy">
                                 </div>
                             </div>
@@ -274,9 +240,9 @@
     </main>
 
     <div class="qr-modal" id="qr-modal" hidden>
-        <button class="qr-modal__backdrop" type="button" data-qr-close aria-label="Close QR preview"></button>
+        <button class="qr-modal__backdrop" type="button" tabindex="-1" data-qr-close aria-label="Close QR preview" data-i18n-aria-label="ui-qr-close"></button>
         <div class="qr-modal__dialog glass-card" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title">
-            <button class="qr-modal__close" type="button" data-qr-close aria-label="Close QR preview">&times;</button>
+            <button class="qr-modal__close" type="button" data-qr-close aria-label="Close QR preview" data-i18n-aria-label="ui-qr-close">&times;</button>
             <p class="qr-modal__eyebrow" data-i18n="don-qr-kicker">QR preview</p>
             <h2 class="qr-modal__title" id="qr-modal-title">Wallet QR</h2>
             <div class="qr-modal__image-wrap">
@@ -295,7 +261,7 @@
         </div>
     </div>
 
-    <script src="../../scripts.js" defer></script>
+    <script src="../../scripts.js?v=20261008-audit22" defer></script>
     <script>
     (function () {
         function getDonateText(key, fallback) {
@@ -304,7 +270,13 @@
         }
 
         function buildQR(address) {
-            return `https://api.qrserver.com/v1/create-qr-code/?size=176x176&margin=4&data=${encodeURIComponent(address)}`;
+            const qrFiles = {
+                'bc1qw2dp3ntuvs76r28kzq2jermprv2t7hg0wprwd2': 'btc',
+                '0x9506C0D8F412dcfF07c0240e2Fc49eB3627b2017': 'eth',
+                'UQBVzMlqbYGnqktxXFhhKaiIEWmuiEaj8ZK-dfnAyS4uoKfE': 'ton',
+                'TPDe1dPF2VV9eDkrvZHZrPwsVFjgmin5L9': 'usdt-trc20'
+            };
+            return `../../assets/wallet-qr/${qrFiles[address]}.svg`;
         }
 
         function loadQR(item, address) {
@@ -325,6 +297,7 @@
         const qrModalAddress = document.getElementById('qr-modal-address');
         const qrModalCopy = document.getElementById('qr-modal-copy');
         let lastQrTrigger = null;
+        const modalBackground = new Map();
 
         function openQrModal(payload) {
             if (!qrModal) return;
@@ -334,12 +307,21 @@
             qrModalCopy.dataset.address = payload.address;
             qrModalImage.src = buildQR(payload.address);
             qrModal.hidden = false;
+            // Keep assistive navigation outside the dialog inactive as well as Tab.
+            for (const element of document.body.children) {
+                if (element === qrModal || !(element instanceof HTMLElement)) continue;
+                modalBackground.set(element, element.inert);
+                element.inert = true;
+            }
             document.body.style.overflow = 'hidden';
+            qrModal.querySelector('.qr-modal__close').focus();
         }
 
         function closeQrModal() {
             if (!qrModal || qrModal.hidden) return;
             qrModal.hidden = true;
+            for (const [element, wasInert] of modalBackground) element.inert = wasInert;
+            modalBackground.clear();
             document.body.style.overflow = '';
             if (lastQrTrigger && typeof lastQrTrigger.focus === 'function') {
                 lastQrTrigger.focus();
@@ -387,22 +369,34 @@
         const copySvg = '<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
         const checkSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
 
+        async function copyAddress(copyBtn, address) {
+            if (!address) return;
+            try {
+                await navigator.clipboard.writeText(address);
+                copyBtn.classList.add('copied');
+                copyBtn.innerHTML = checkSvg;
+                setTimeout(() => {
+                    copyBtn.classList.remove('copied');
+                    copyBtn.innerHTML = copySvg;
+                }, 1800);
+            } catch (error) {
+                console.error('Could not copy wallet address:', error);
+            }
+        }
+
+        if (qrModalCopy) {
+            qrModalCopy.addEventListener('click', () => {
+                copyAddress(qrModalCopy, qrModalCopy.dataset.address);
+            });
+        }
+
         accordion.addEventListener('click', function (e) {
             const copyBtn = e.target.closest('.accordion-copy-btn');
             if (copyBtn) {
                 const row = copyBtn.closest('.accordion-address-row');
                 const addrEl = row ? row.querySelector('.accordion-address-text') : null;
                 const address = copyBtn.dataset.address || (addrEl ? (addrEl.dataset.address || addrEl.textContent.trim()) : '');
-                if (!address) return;
-
-                navigator.clipboard.writeText(address).then(() => {
-                    copyBtn.classList.add('copied');
-                    copyBtn.innerHTML = checkSvg;
-                    setTimeout(() => {
-                        copyBtn.classList.remove('copied');
-                        copyBtn.innerHTML = copySvg;
-                    }, 1800);
-                });
+                copyAddress(copyBtn, address);
                 return;
             }
 
@@ -432,11 +426,15 @@
             accordion.querySelectorAll('.accordion-item.is-open').forEach(open => {
                 open.classList.remove('is-open');
                 open.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
+                open.querySelector('.accordion-panel').inert = true;
+                open.querySelector('.accordion-panel').setAttribute('aria-hidden', 'true');
             });
 
             if (!isOpen) {
                 item.classList.add('is-open');
                 trigger.setAttribute('aria-expanded', 'true');
+                item.querySelector('.accordion-panel').inert = false;
+                item.querySelector('.accordion-panel').setAttribute('aria-hidden', 'false');
 
                 if (item.dataset.coin !== 'USDT') {
                     const addrEl = item.querySelector('.accordion-address-text');
@@ -464,6 +462,19 @@
             });
 
             document.addEventListener('keydown', function (e) {
+                if (e.key === 'Tab' && !qrModal.hidden) {
+                    const buttons = qrModal.querySelectorAll('.qr-modal__dialog button:not([disabled])');
+                    const first = buttons[0], last = buttons[buttons.length - 1];
+                    const outside = !qrModal.querySelector('.qr-modal__dialog').contains(document.activeElement);
+                    if (e.shiftKey && (document.activeElement === first || outside)) {
+                        e.preventDefault(); last?.focus();
+                    } else if (!e.shiftKey && (document.activeElement === last || outside)) {
+                        e.preventDefault(); first?.focus();
+                    }
+                }
+                if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.accordion-qr')) {
+                    e.preventDefault(); e.target.click();
+                }
                 if (e.key === 'Escape') {
                     closeQrModal();
                 }
@@ -471,6 +482,6 @@
         }
     })();
     </script>
+  <script src="../../assets/micro-motion.js?v=20261008-review18"></script>
 </body>
 </html>
-
