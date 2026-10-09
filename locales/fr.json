@@ -664,6 +664,8 @@
     "ui-wave-pause": "Mettre les vagues en pause",
     "ui-wave-resume": "Reprendre les vagues",
     "ui-wave-still": "Vagues en pause",
+    "ui-wave-unavailable": "Animation indisponible — réessayer",
+    "ui-wave-unavailable-help": "WebGL est indisponible. Cliquez pour réessayer.",
     "ui-skip-main": "Aller au contenu",
     "ui-case-details": "Architecture et détails",
     "ui-library-category": "Composants UI et animations",

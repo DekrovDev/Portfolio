@@ -664,6 +664,8 @@
     "ui-wave-pause": "暂停波浪",
     "ui-wave-resume": "继续波浪",
     "ui-wave-still": "波浪已暂停",
+    "ui-wave-unavailable": "动画不可用 — 重试",
+    "ui-wave-unavailable-help": "WebGL 不可用。点击重试。",
     "ui-skip-main": "跳转到内容",
     "ui-case-details": "架构与详情",
     "ui-library-category": "界面组件与动画",

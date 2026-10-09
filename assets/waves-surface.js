@@ -13,8 +13,11 @@
   const cssOnly = new URLSearchParams(location.search).get('waves') === 'css';
   const control = document.getElementById('wave-control');
   const controlLabel = document.getElementById('wave-control-label');
-  let paused = false, faded = false;
-  let render, initialized = false, waiting = false, visible = true, lost = false;
+  // Reduced motion sets the initial state, but an explicit click may opt in.
+  let paused = reduced.matches || cssOnly, faded = false, optedIn = false;
+  let render, initialized = false, visible = true, lost = false, failed = false;
+  let resizeObserver;
+  const motionAllowed = () => !reduced.matches || optedIn;
   let frame = 0, scrollFrame = 0, stamp = 0, lastDraw = 0, elapsed = 0;
   const updateFade = () => {
     const bounds = hero.getBoundingClientRect();
@@ -31,45 +34,42 @@
   const stop = () => { cancelAnimationFrame(frame); frame = 0; stamp = 0; };
   const tick = time => {
     frame = 0;
-    if (paused || faded || !visible || document.hidden || reduced.matches || !render || lost) return;
+    if (paused || faded || !visible || document.hidden || !motionAllowed() || !render || lost) return;
     elapsed += stamp ? Math.min((time - stamp) * .001, .08) : 0;
     stamp = time;
     if (time - lastDraw >= 32) { render(elapsed); lastDraw = time; }
     frame = requestAnimationFrame(tick);
   };
   const resume = () => {
-    if (!paused && !faded && render && visible && !document.hidden && !reduced.matches && !lost && !frame) frame = requestAnimationFrame(tick);
+    if (!paused && !faded && render && visible && !document.hidden && motionAllowed() && !lost && !frame) frame = requestAnimationFrame(tick);
   };
   const syncControl = () => {
-    const still = reduced.matches || cssOnly || lost || layer.dataset.waveMode === 'fallback' || (initialized && !render);
+    const still = !render || lost || !motionAllowed();
     layer.dataset.waveMotion = still ? 'static' : paused ? 'paused' : faded || !visible || document.hidden ? 'suspended' : 'running';
     if (!control || !controlLabel) return;
     control.hidden = false;
-    control.disabled = still;
-    control.setAttribute('aria-pressed', String(paused));
-    const key = still ? 'ui-wave-still' : paused ? 'ui-wave-resume' : 'ui-wave-pause';
-    const fallbackText = still ? 'Waves paused' : paused ? 'Resume waves' : 'Pause waves';
+    control.disabled = false;
+    control.setAttribute('aria-pressed', String(paused || still));
+    const key = failed ? 'ui-wave-unavailable' : paused || still ? 'ui-wave-resume' : 'ui-wave-pause';
+    const fallbackText = failed ? 'Animation unavailable — retry' : paused || still ? 'Resume waves' : 'Pause waves';
     controlLabel.textContent = window.portfolioTranslations?.[key] || fallbackText;
+    control.title = failed ? window.portfolioTranslations?.['ui-wave-unavailable-help'] || 'WebGL is unavailable. Click to try again.' : '';
   };
-  const fallback = () => { stop(); layer.classList.remove('webgl-ready'); layer.dataset.waveMode = 'fallback'; syncControl(); };
+  const fallback = () => {
+    stop(); render = null; initialized = false; failed = true;
+    resizeObserver?.disconnect();
+    layer.classList.remove('webgl-ready'); layer.dataset.waveMode = 'fallback'; syncControl();
+  };
   const init = () => {
-    if (initialized || reduced.matches || cssOnly || lost) return;
-    if (!image.complete) {
-      if (!waiting) {
-        waiting = true;
-        image.addEventListener('load', () => { waiting = false; init(); }, { once: true });
-        image.addEventListener('error', fallback, { once: true });
-      }
-      return;
-    }
-    if (!image.naturalWidth) { fallback(); return; }
+    if (initialized || !motionAllowed() || (cssOnly && !optedIn) || lost) return;
+    // The GPU surface does not use the fallback image and must not wait for it.
     initialized = true;
     try {
       const gl = canvas.getContext('webgl', { alpha: false, antialias: true, depth: true, powerPreference: 'low-power' });
       if (!gl) { fallback(); return; }
       const derivatives = !!gl.getExtension('OES_standard_derivatives');
       const wideIndices = !!gl.getExtension('OES_element_index_uint');
-      const precision = gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.HIGH_FLOAT).precision > 0 ? 'highp' : 'mediump';
+      const precision = gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.HIGH_FLOAT)?.precision > 0 ? 'highp' : 'mediump';
       const shader = (type, source) => {
         const handle = gl.createShader(type);
         gl.shaderSource(handle, source); gl.compileShader(handle);
@@ -246,20 +246,29 @@
         gl.uniform1f(cameraX, width <= 800 ? 4 : 0);
         render(elapsed); updateFade();
       };
-      resize(); layer.dataset.waveMode = 'water';
+      resize(); failed = false; layer.dataset.waveMode = 'water';
       layer.dataset.waveAntialias = gl.getContextAttributes().antialias ? 'multisample' : 'supersample';
       layer.dataset.waveFilter = derivatives ? 'screen-space' : 'distance';
       layer.dataset.waveSurface = 'analytic';
       layer.classList.add('webgl-ready'); resume(); syncControl();
-      new ResizeObserver(resize).observe(layer);
+      resizeObserver?.disconnect();
+      resizeObserver = new ResizeObserver(resize);
+      resizeObserver.observe(layer);
     } catch (error) {
       render = null; fallback(); console.warn('Dark water uses the fallback:', error.message);
     }
   };
   canvas.addEventListener('webglcontextlost', event => { event.preventDefault(); lost = true; fallback(); });
+  canvas.addEventListener('webglcontextrestored', () => {
+    lost = false; failed = false; init(); syncControl();
+  });
   control?.addEventListener('click', () => {
-    if (control.disabled) return;
-    paused = !paused;
+    if (!render || lost || !motionAllowed()) {
+      optedIn = true; paused = false; failed = false;
+      init();
+      if (!render) failed = true;
+    } else paused = !paused;
+    if (render && !lost) layer.classList.add('webgl-ready');
     paused ? stop() : resume();
     syncControl();
   });
@@ -268,6 +277,9 @@
   document.addEventListener('visibilitychange', () => { document.hidden ? stop() : resume(); syncControl(); });
   addEventListener('scroll', () => { if (!scrollFrame) scrollFrame = requestAnimationFrame(updateFade); }, { passive: true });
   reduced.addEventListener('change', () => {
+    // A changed OS preference takes precedence until another explicit opt-in.
+    optedIn = false;
+    paused = reduced.matches || cssOnly;
     if (reduced.matches) { stop(); layer.classList.remove('webgl-ready'); }
     else { init(); if (render && !lost) { layer.classList.add('webgl-ready'); resume(); } }
     syncControl();
