@@ -30,6 +30,7 @@ main:focus { outline: none; }
 .mono-home .hero-actions .btn-primary { min-height: 52px; gap: 26px; }
 .text-link { font-size: 14px; gap: 22px; }
 .wave-image { animation: none; transform: none; }
+.wave-background.still-ready .wave-image { opacity: 1; }
 .wave-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 700ms ease; }
 .video-ready .wave-video { opacity: 1; }
 .video-ready .wave-image { opacity: 0; }

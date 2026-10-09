@@ -74,6 +74,8 @@
     if (render && !gpuLost() && !frame) frame = requestAnimationFrame(tick);
   };
   const syncControl = () => {
+    // Do not show the unrelated still image while the moving surface loads.
+    layer.classList.toggle('still-ready', !motionAllowed() || (cssOnly && !optedIn) || failed);
     const still = failed || (!render && !video) || gpuLost() || !motionAllowed();
     const loading = !!video && (video.readyState < 2 || video.paused) && active() && !failed;
     layer.dataset.waveMotion = still ? 'static' : paused ? 'paused' : faded || !visible || document.hidden ? 'suspended' : loading ? 'loading' : 'running';
