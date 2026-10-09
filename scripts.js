@@ -186,7 +186,7 @@ async function setLanguage(lang, updateUrl = true, persistSelection = true) {
 
         let translations = translationCache.get(lang);
         if (!translations) {
-            const response = await fetch(new URL(`${lang}.json?v=20261009-motion23`, localesBaseUrl));
+            const response = await fetch(new URL(`${lang}.json?v=20261009-water25`, localesBaseUrl));
             if (!response.ok) throw new Error('Translation file not found');
             translations = await response.json();
             translationCache.set(lang, translations);

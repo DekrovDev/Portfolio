@@ -665,7 +665,7 @@
     "ui-wave-resume": "Riprendi le onde",
     "ui-wave-still": "Onde ferme",
     "ui-wave-unavailable": "Animazione non disponibile — riprova",
-    "ui-wave-unavailable-help": "WebGL non disponibile. Fai clic per riprovare.",
+    "ui-wave-unavailable-help": "L’animazione non si è avviata. Fai clic per riprovare.",
     "ui-skip-main": "Vai al contenuto",
     "ui-case-details": "Architettura e dettagli",
     "ui-library-category": "Componenti UI e animazioni",

@@ -1,5 +1,5 @@
 /* Dark water: displaced 3D vertices, travelling ripples and Fresnel reflections.
-   The reference image is only a fallback; it is never stretched by this renderer.
+   A recording of this surface handles unavailable WebGL; the image handles still mode.
    Browser-only WebGL; no dependencies, network API, or server-side rendering.
    Two-scale wave/normal approach: NVIDIA GPU Gems, chapter 1, Effective Water Simulation. */
 (() => {
@@ -17,9 +17,12 @@
   let paused = reduced.matches || cssOnly, faded = false, optedIn = false;
   let render, initialized = false, visible = true, lost = false, failed = false;
   let resizeObserver;
-  let software;
-  const gpuLost = () => lost && !software;
+  // Native video contains the same GPU surface, rendered offline at 30 fps.
+  // It is loaded only if this browser cannot create a usable WebGL context.
+  let video, playAttempt;
+  const gpuLost = () => lost && !video;
   const motionAllowed = () => !reduced.matches || optedIn;
+  const active = () => !paused && !faded && visible && !document.hidden && motionAllowed();
   let frame = 0, scrollFrame = 0, stamp = 0, lastDraw = 0, elapsed = 0;
   const updateFade = () => {
     const bounds = hero.getBoundingClientRect();
@@ -33,62 +36,114 @@
     }
     scrollFrame = 0;
   };
-  const stop = () => { cancelAnimationFrame(frame); frame = 0; stamp = 0; };
+  const stop = () => { cancelAnimationFrame(frame); frame = 0; stamp = 0; video?.pause(); };
   const tick = time => {
     frame = 0;
     if (paused || faded || !visible || document.hidden || !motionAllowed() || !render || gpuLost()) return;
     elapsed += stamp ? Math.min((time - stamp) * .001, .08) : 0;
     stamp = time;
-    if (time - lastDraw >= (software ? 50 : 32)) { render(elapsed); lastDraw = time; }
+    if (time - lastDraw >= 32) { render(elapsed); lastDraw = time; }
     frame = requestAnimationFrame(tick);
   };
   const resume = () => {
-    if (!paused && !faded && render && visible && !document.hidden && motionAllowed() && !gpuLost() && !frame) frame = requestAnimationFrame(tick);
+    if (!active()) return;
+    if (video) {
+      if (playAttempt || failed || !video.paused) return;
+      const current = video;
+      const attempt = current.play();
+      playAttempt = attempt;
+      attempt.then(() => {
+        if (video !== current) return;
+        if (!active()) current.pause();
+        syncControl();
+      }).catch(error => {
+        if (video !== current || error.name === 'AbortError') return;
+        // Some Firefox profiles block even muted autoplay. A real click retries.
+        paused = true;
+        failed = error.name !== 'NotAllowedError';
+        syncControl();
+      }).finally(() => {
+        if (playAttempt !== attempt) return;
+        playAttempt = null;
+        // Visibility may have returned while an interrupted play() was settling.
+        if (video === current && active() && current.paused && !failed) resume();
+      });
+      syncControl();
+      return;
+    }
+    if (render && !gpuLost() && !frame) frame = requestAnimationFrame(tick);
   };
   const syncControl = () => {
-    const still = !render || gpuLost() || !motionAllowed();
-    layer.dataset.waveMotion = still ? 'static' : paused ? 'paused' : faded || !visible || document.hidden ? 'suspended' : 'running';
+    const still = failed || (!render && !video) || gpuLost() || !motionAllowed();
+    const loading = !!video && (video.readyState < 2 || video.paused) && active() && !failed;
+    layer.dataset.waveMotion = still ? 'static' : paused ? 'paused' : faded || !visible || document.hidden ? 'suspended' : loading ? 'loading' : 'running';
     if (!control || !controlLabel) return;
     control.hidden = false;
     control.disabled = false;
     control.setAttribute('aria-pressed', String(paused || still));
+    control.setAttribute('aria-busy', String(loading));
     const key = failed ? 'ui-wave-unavailable' : paused || still ? 'ui-wave-resume' : 'ui-wave-pause';
     const fallbackText = failed ? 'Animation unavailable — retry' : paused || still ? 'Resume waves' : 'Pause waves';
     controlLabel.textContent = window.portfolioTranslations?.[key] || fallbackText;
-    control.title = failed ? window.portfolioTranslations?.['ui-wave-unavailable-help'] || 'WebGL is unavailable. Click to try again.' : '';
+    control.title = failed ? window.portfolioTranslations?.['ui-wave-unavailable-help'] || 'Animation could not start. Click to try again.' : '';
+  };
+  const removeVideo = () => {
+    const previous = video;
+    video = null; playAttempt = null;
+    layer.classList.remove('video-ready');
+    if (!previous) return;
+    previous.pause(); previous.replaceChildren(); previous.removeAttribute('src'); previous.load(); previous.remove();
   };
   const fallback = reason => {
-    stop(); render = null; initialized = false; failed = true;
+    stop(); render = null; initialized = false;
     resizeObserver?.disconnect();
-    layer.classList.remove('webgl-ready'); layer.dataset.waveMode = 'fallback'; syncControl();
+    layer.classList.remove('webgl-ready'); layer.dataset.waveMode = 'fallback';
     layer.dataset.waveError = reason || 'WebGL context unavailable';
-    try {
-      software?.destroy();
-      software = window.portfolioWaterFallback?.(layer);
-      if (!software) return;
-      render = software.render;
-      const renderer = software;
-      const resize = () => {
-        if (software !== renderer) return;
-        renderer.resize(); renderer.render(elapsed); updateFade();
+    if (!motionAllowed()) { syncControl(); return; }
+    if (!video) {
+      video = document.createElement('video');
+      video.className = 'wave-video';
+      video.muted = true; video.defaultMuted = true; video.loop = true; video.playsInline = true; video.preload = 'none';
+      video.setAttribute('aria-hidden', 'true');
+      const current = video;
+      const unavailable = () => {
+        if (video !== current) return;
+        failed = true; stop(); layer.classList.remove('video-ready'); syncControl();
       };
-      resize();
-      layer.dataset.waveMode = 'water-software';
-      layer.classList.add('webgl-ready'); failed = false;
-      resizeObserver = new ResizeObserver(resize); resizeObserver.observe(layer);
-      resume(); syncControl();
-    } catch (error) {
-      software?.destroy(); software = null; render = null; failed = true;
-      layer.classList.remove('webgl-ready'); layer.dataset.waveMode = 'fallback'; syncControl();
-      console.warn('Software water unavailable:', error.message);
+      const formats = [['water-loop.webm', 'video/webm'], ['water-loop.mp4', 'video/mp4']];
+      let sourceFailures = 0;
+      for (const [file, type] of formats) {
+        const source = document.createElement('source');
+        source.src = new URL(file, new URL('assets/', document.baseURI)).href;
+        source.type = type;
+        // Firefox may leave play() pending when every <source> fails to load.
+        source.addEventListener('error', () => { if (++sourceFailures === formats.length) unavailable(); });
+        video.append(source);
+      }
+      const show = () => {
+        if (video !== current) return;
+        if (motionAllowed() && current.readyState >= 2) layer.classList.add('video-ready');
+        syncControl();
+      };
+      current.addEventListener('loadeddata', show);
+      current.addEventListener('playing', () => { if (video !== current) return; if (!active()) current.pause(); show(); });
+      current.addEventListener('pause', () => { if (video === current) syncControl(); });
+      current.addEventListener('waiting', () => { if (video === current) syncControl(); });
+      current.addEventListener('error', unavailable);
+      layer.append(current);
     }
+    failed = false; layer.dataset.waveMode = 'water-video';
+    resume(); syncControl();
   };
   const init = () => {
-    if (initialized || software || !motionAllowed() || (cssOnly && !optedIn) || lost) return;
+    if (initialized || video || !motionAllowed() || (cssOnly && !optedIn)) return;
+    if (lost) { fallback('WebGL context lost'); return; }
     // The GPU surface does not use the fallback image and must not wait for it.
     initialized = true;
     try {
-      const gl = canvas.getContext('webgl', { alpha: false, antialias: true, depth: true, powerPreference: 'low-power' });
+      const options = { alpha: false, antialias: true, depth: true, powerPreference: 'default' };
+      // Multisampling can be unavailable on an otherwise capable driver.
+      const gl = canvas.getContext('webgl', options) || canvas.getContext('webgl', { ...options, antialias: false });
       if (!gl) { fallback(); return; }
       const derivatives = !!gl.getExtension('OES_standard_derivatives');
       const wideIndices = !!gl.getExtension('OES_element_index_uint');
@@ -278,22 +333,25 @@
       resizeObserver = new ResizeObserver(resize);
       resizeObserver.observe(layer);
     } catch (error) {
-      render = null; fallback(error.message); console.warn('Dark water uses software rendering:', error.message);
+      render = null; fallback(error.message);
     }
   };
   canvas.addEventListener('webglcontextlost', event => { event.preventDefault(); lost = true; fallback(); });
   canvas.addEventListener('webglcontextrestored', () => {
-    stop(); resizeObserver?.disconnect(); software?.destroy(); software = null; render = null;
+    stop(); resizeObserver?.disconnect(); removeVideo(); render = null;
     layer.classList.remove('webgl-ready'); layer.dataset.waveMode = 'fallback';
     lost = false; failed = false; initialized = false; init(); syncControl();
   });
   control?.addEventListener('click', () => {
-    if (!render || gpuLost() || !motionAllowed()) {
+    if (failed || (!render && !video) || gpuLost() || !motionAllowed()) {
+      const retryVideo = failed && !!video;
       optedIn = true; paused = false; failed = false;
+      if (retryVideo) removeVideo();
       init();
-      if (!render) failed = true;
+      if (!render && !video) failed = true;
     } else paused = !paused;
     if (render && !gpuLost()) layer.classList.add('webgl-ready');
+    if (video && video.readyState >= 2 && motionAllowed()) layer.classList.add('video-ready');
     paused ? stop() : resume();
     syncControl();
   });
@@ -305,8 +363,8 @@
     // A changed OS preference takes precedence until another explicit opt-in.
     optedIn = false;
     paused = reduced.matches || cssOnly;
-    if (reduced.matches) { stop(); layer.classList.remove('webgl-ready'); }
-    else { if (!software) init(); if (render && !gpuLost()) { layer.classList.add('webgl-ready'); resume(); } }
+    if (reduced.matches) { stop(); layer.classList.remove('webgl-ready', 'video-ready'); }
+    else { init(); if (render && !gpuLost()) layer.classList.add('webgl-ready'); if (video?.readyState >= 2) layer.classList.add('video-ready'); resume(); }
     syncControl();
   });
   init(); updateFade(); syncControl();

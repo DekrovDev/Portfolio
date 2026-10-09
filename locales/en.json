@@ -665,7 +665,7 @@
     "ui-wave-resume": "Resume waves",
     "ui-wave-still": "Waves paused",
     "ui-wave-unavailable": "Animation unavailable — retry",
-    "ui-wave-unavailable-help": "WebGL is unavailable. Click to try again.",
+    "ui-wave-unavailable-help": "Animation could not start. Click to try again.",
     "ui-skip-main": "Skip to content",
     "ui-case-details": "Architecture & details",
     "ui-library-category": "UI Components & Animations",

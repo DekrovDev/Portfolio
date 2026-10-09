@@ -665,7 +665,7 @@
     "ui-wave-resume": "Продовжити хвилі",
     "ui-wave-still": "Хвилі зупинено",
     "ui-wave-unavailable": "Анімація недоступна — повторити",
-    "ui-wave-unavailable-help": "WebGL недоступний. Натисніть, щоб повторити спробу.",
+    "ui-wave-unavailable-help": "Анімація не запустилася. Натисніть, щоб повторити спробу.",
     "ui-skip-main": "До вмісту",
     "ui-case-details": "Архітектура й подробиці",
     "ui-library-category": "UI-компоненти й анімації",
