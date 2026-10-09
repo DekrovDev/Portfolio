@@ -30,6 +30,7 @@ main:focus { outline: none; }
 .mono-home .hero-actions .btn-primary { min-height: 52px; gap: 26px; }
 .text-link { font-size: 14px; gap: 22px; }
 .wave-image { animation: none; transform: none; }
+.wave-software { filter: blur(1px); }
 .wave-background::after, .wave-background.webgl-ready::after {
   background: linear-gradient(90deg, #000 2%, rgba(0,0,0,.9) 30%, rgba(0,0,0,.3) 65%, transparent), linear-gradient(0deg, #000, transparent 20%);
 }

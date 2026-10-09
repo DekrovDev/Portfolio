@@ -17,6 +17,8 @@
   let paused = reduced.matches || cssOnly, faded = false, optedIn = false;
   let render, initialized = false, visible = true, lost = false, failed = false;
   let resizeObserver;
+  let software;
+  const gpuLost = () => lost && !software;
   const motionAllowed = () => !reduced.matches || optedIn;
   let frame = 0, scrollFrame = 0, stamp = 0, lastDraw = 0, elapsed = 0;
   const updateFade = () => {
@@ -34,17 +36,17 @@
   const stop = () => { cancelAnimationFrame(frame); frame = 0; stamp = 0; };
   const tick = time => {
     frame = 0;
-    if (paused || faded || !visible || document.hidden || !motionAllowed() || !render || lost) return;
+    if (paused || faded || !visible || document.hidden || !motionAllowed() || !render || gpuLost()) return;
     elapsed += stamp ? Math.min((time - stamp) * .001, .08) : 0;
     stamp = time;
-    if (time - lastDraw >= 32) { render(elapsed); lastDraw = time; }
+    if (time - lastDraw >= (software ? 50 : 32)) { render(elapsed); lastDraw = time; }
     frame = requestAnimationFrame(tick);
   };
   const resume = () => {
-    if (!paused && !faded && render && visible && !document.hidden && motionAllowed() && !lost && !frame) frame = requestAnimationFrame(tick);
+    if (!paused && !faded && render && visible && !document.hidden && motionAllowed() && !gpuLost() && !frame) frame = requestAnimationFrame(tick);
   };
   const syncControl = () => {
-    const still = !render || lost || !motionAllowed();
+    const still = !render || gpuLost() || !motionAllowed();
     layer.dataset.waveMotion = still ? 'static' : paused ? 'paused' : faded || !visible || document.hidden ? 'suspended' : 'running';
     if (!control || !controlLabel) return;
     control.hidden = false;
@@ -55,13 +57,34 @@
     controlLabel.textContent = window.portfolioTranslations?.[key] || fallbackText;
     control.title = failed ? window.portfolioTranslations?.['ui-wave-unavailable-help'] || 'WebGL is unavailable. Click to try again.' : '';
   };
-  const fallback = () => {
+  const fallback = reason => {
     stop(); render = null; initialized = false; failed = true;
     resizeObserver?.disconnect();
     layer.classList.remove('webgl-ready'); layer.dataset.waveMode = 'fallback'; syncControl();
+    layer.dataset.waveError = reason || 'WebGL context unavailable';
+    try {
+      software?.destroy();
+      software = window.portfolioWaterFallback?.(layer);
+      if (!software) return;
+      render = software.render;
+      const renderer = software;
+      const resize = () => {
+        if (software !== renderer) return;
+        renderer.resize(); renderer.render(elapsed); updateFade();
+      };
+      resize();
+      layer.dataset.waveMode = 'water-software';
+      layer.classList.add('webgl-ready'); failed = false;
+      resizeObserver = new ResizeObserver(resize); resizeObserver.observe(layer);
+      resume(); syncControl();
+    } catch (error) {
+      software?.destroy(); software = null; render = null; failed = true;
+      layer.classList.remove('webgl-ready'); layer.dataset.waveMode = 'fallback'; syncControl();
+      console.warn('Software water unavailable:', error.message);
+    }
   };
   const init = () => {
-    if (initialized || !motionAllowed() || (cssOnly && !optedIn) || lost) return;
+    if (initialized || software || !motionAllowed() || (cssOnly && !optedIn) || lost) return;
     // The GPU surface does not use the fallback image and must not wait for it.
     initialized = true;
     try {
@@ -119,7 +142,7 @@
       const vertex = shader(gl.VERTEX_SHADER, `
         precision highp float;
         attribute vec2 position;
-        uniform float time, aspect, cameraX;
+        uniform ${precision} float time, aspect, cameraX;
         varying ${precision} vec3 surface;
         varying ${precision} vec2 slope;
         varying ${precision} float distance;
@@ -255,20 +278,22 @@
       resizeObserver = new ResizeObserver(resize);
       resizeObserver.observe(layer);
     } catch (error) {
-      render = null; fallback(); console.warn('Dark water uses the fallback:', error.message);
+      render = null; fallback(error.message); console.warn('Dark water uses software rendering:', error.message);
     }
   };
   canvas.addEventListener('webglcontextlost', event => { event.preventDefault(); lost = true; fallback(); });
   canvas.addEventListener('webglcontextrestored', () => {
-    lost = false; failed = false; init(); syncControl();
+    stop(); resizeObserver?.disconnect(); software?.destroy(); software = null; render = null;
+    layer.classList.remove('webgl-ready'); layer.dataset.waveMode = 'fallback';
+    lost = false; failed = false; initialized = false; init(); syncControl();
   });
   control?.addEventListener('click', () => {
-    if (!render || lost || !motionAllowed()) {
+    if (!render || gpuLost() || !motionAllowed()) {
       optedIn = true; paused = false; failed = false;
       init();
       if (!render) failed = true;
     } else paused = !paused;
-    if (render && !lost) layer.classList.add('webgl-ready');
+    if (render && !gpuLost()) layer.classList.add('webgl-ready');
     paused ? stop() : resume();
     syncControl();
   });
@@ -281,7 +306,7 @@
     optedIn = false;
     paused = reduced.matches || cssOnly;
     if (reduced.matches) { stop(); layer.classList.remove('webgl-ready'); }
-    else { init(); if (render && !lost) { layer.classList.add('webgl-ready'); resume(); } }
+    else { if (!software) init(); if (render && !gpuLost()) { layer.classList.add('webgl-ready'); resume(); } }
     syncControl();
   });
   init(); updateFade(); syncControl();
